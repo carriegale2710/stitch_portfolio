@@ -7,8 +7,12 @@ Github: https://github.com/carriegale2710
 
 ## Hero
 
-Hey, I'm Carrie
-I am a Full-stack Web Developer + UX/UI Designer based in Sydney, Australia.
+> System.Status: Open to junior-mid web dev roles. Based in Sydney.
+
+Header: Bridge the design-to-code gap.
+
+Blurb: Hi, I'm Carrie. Once a UX/UI Designer, now a full-stack developer. I streamline the messy process of translating your UI designs from Figma into real working front-end code. Comfortable working with both designers and developers on the team.
+
 Resume →
 Contact →
 
@@ -16,13 +20,15 @@ Contact →
 
 ### Indigenous Academic Library
 
-Full-stack Flask web app for managing restricted cultural collections for a public library. Features role-based access control, session management, and password hashing
+Web application for a public library to manage
+culturally-sensitive materials from local Indgenous community.
+Features include role-based access control, user session
+management, and password hashing.
 
-Python
 Flask
+Python
 MySQL
-HTML
-CSS
+AWS
 
 Live Demo: https://indigenouslibrary.site/
 Code: https://github.com/carriegale2710/indigenous-library
@@ -62,12 +68,11 @@ Java
 
 Code: https://github.com/carriegale2710/minesweeper/
 
-## About
-
 ## Tech stack
 
 Typescript
 React
+Next.js
 Python
 Java
 SQL
@@ -76,6 +81,7 @@ HTML
 Tailwind CSS
 SASS
 Figma
+AWS
 
 ## Experience
 
@@ -114,3 +120,28 @@ Sydney, NSW
 - •Consulted for e-commerce clients, delivering UX/UI audits and website redesigns.
 - •Identified and resolved usability issues using Hotjar, improving accessibility scores by 25%.
 - •Streamlined checkout flow design by analyzing drop-off points, improving conversion rates by 15-30%.
+
+## Education
+
+Queensland University Of Technology
+Graduate Certificate of IT (Computer Science)
+Feb 2026 – Dec 2027
+Coursework: Rapid Web Development with databases, Systems Innovation, Network Security, Machine Learning
+
+\_nology
+Software Engineering Program (Bootcamp)
+Mar 2025 - Jul 2025
+Intensive 12-week program covering full-stack development skills including: HTML/CSS, Javascript, React.js, Vite, SQL, Java, Spring Boot, AWS S3/EC2, Next.js.
+
+The University Of Sydney
+Bachelor of Arts (Design & Digital Cultures)
+Mar 2020 - Dec 2023
+Coursework: Data Visualization & Informatics, Human-Computer Interaction, User Research
+Student Exchange Programs: Korea University; Rikkyo University
+Extracurricular: MIXSOC President, Student Peer Mentor, Global Citizenship Award
+
+## Core.Logics
+
+## Two truths, one lie
+
+## About me - journey to tech (separate page)
