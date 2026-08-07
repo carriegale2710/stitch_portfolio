@@ -1,0 +1,137 @@
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+/* Dithered pattern for subtle texture */
+.bg-dither {
+  background-image: radial-gradient(#424843 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .hero-img {
+    animation: breathe 6s ease-in-out infinite;
+  }
+
+  .tilt-card {
+    transform: perspective(1000px) rotateX(var(--rotateX, 0))
+      rotateY(var(--rotateY, 0));
+    transition:
+      transform 0.1s ease,
+      box-shadow 0.3s ease;
+  }
+  .tilt-card:hover {
+    box-shadow:
+      0 0 15px rgba(178, 205, 185, 0.5),
+      6px 6px 0px #101417;
+  }
+
+  .tech-pill {
+    opacity: 0;
+    transform: scale(0.9);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+  .reveal.active .tech-pill {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .tech-pill:hover {
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(178, 205, 185, 0.4);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .timeline-line {
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 1s ease-out;
+  }
+  .reveal.active .timeline-line {
+    transform: scaleY(1);
+  }
+  .timeline-dot {
+    opacity: 0;
+    transform: scale(0);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+  .reveal.active .timeline-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 1px);
+    }
+    40% {
+      transform: translate(-1px, -1px);
+    }
+    60% {
+      transform: translate(2px, 1px);
+    }
+    80% {
+      transform: translate(1px, -1px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  .glitch-hover:hover {
+    animation: glitch 0.3s infinite;
+  }
+
+  #cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 20px;
+    background-color: rgba(178, 205, 185, 0.7);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
+    mix-blend-mode: difference;
+  }
+}
