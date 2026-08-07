@@ -33,13 +33,18 @@ This is a developer portfolio project that showcases my skills, projects, and ex
 
 - [x] Change links
 - [x] Change text copy text for projects,exp,edu,hero
-- [ ] Replace about section copy text
-- [ ] Add resume download button
+- [x] Add resume download button
 - [ ] Replace project images
+- [ ] Deploy with Github Pages/Vercel
+- [ ] Replace about section copy text
+- [ ] Add Contact me form
 - [ ] Add personal logo
 - [ ] Update favicon
 - [ ] Add photo carousel for about section
-- [ ] Add Contact me form
+
+## Bonus
+
+- Add Google Analytics for improvement insights
 
 ## Bugs / Issues
 
