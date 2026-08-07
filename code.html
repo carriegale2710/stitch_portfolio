@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maker.Dev - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Dithered pattern for subtle texture */
+        .bg-dither {
+            background-image: radial-gradient(#424843 1px, transparent 1px);
+            background-size: 4px 4px;
+        }
+
+        /* Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            }
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            @keyframes breathe {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .hero-img {
+                animation: breathe 6s ease-in-out infinite;
+            }
+
+            .tilt-card {
+                transform: perspective(1000px) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0));
+                transition: transform 0.1s ease, box-shadow 0.3s ease;
+            }
+            .tilt-card:hover {
+                box-shadow: 0 0 15px rgba(178, 205, 185, 0.5), 6px 6px 0px #101417;
+            }
+
+            .tech-pill {
+                opacity: 0;
+                transform: scale(0.9);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            .reveal.active .tech-pill {
+                opacity: 1;
+                transform: scale(1);
+            }
+            .tech-pill:hover {
+                animation: pulse 1s infinite;
+            }
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(178, 205, 185, 0.4); }
+                100% { transform: scale(1); }
+            }
+
+            .timeline-line {
+                transform-origin: top;
+                transform: scaleY(0);
+                transition: transform 1s ease-out;
+            }
+            .reveal.active .timeline-line {
+                transform: scaleY(1);
+            }
+            .timeline-dot {
+                opacity: 0;
+                transform: scale(0);
+                transition: opacity 0.4s ease, transform 0.4s ease;
+            }
+            .reveal.active .timeline-dot {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            @keyframes glitch {
+                0% { transform: translate(0) }
+                20% { transform: translate(-2px, 1px) }
+                40% { transform: translate(-1px, -1px) }
+                60% { transform: translate(2px, 1px) }
+                80% { transform: translate(1px, -1px) }
+                100% { transform: translate(0) }
+            }
+            .glitch-hover:hover {
+                animation: glitch 0.3s infinite;
+            }
+
+            #cursor {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 12px;
+                height: 20px;
+                background-color: rgba(178, 205, 185, 0.7);
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.1s ease-out;
+                mix-blend-mode: difference;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#181c1f",
+                      "surface": "#101417",
+                      "on-primary": "#1e3527",
+                      "inverse-on-surface": "#2d3134",
+                      "secondary": "#aacbdf",
+                      "primary-container": "#8ca693",
+                      "on-primary-container": "#243c2d",
+                      "error": "#ffb4ab",
+                      "primary": "#b2cdb9",
+                      "on-secondary-fixed-variant": "#2a4b5b",
+                      "outline": "#8c928c",
+                      "on-secondary-container": "#9cbdd1",
+                      "outline-variant": "#424843",
+                      "primary-fixed-dim": "#b2cdb9",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#4c6453",
+                      "secondary-container": "#2d4d5e",
+                      "tertiary-fixed-dim": "#cfc6ae",
+                      "secondary-fixed": "#c6e7fc",
+                      "surface-variant": "#313538",
+                      "surface-container-lowest": "#0b0f11",
+                      "surface-container-high": "#262a2d",
+                      "surface-container-highest": "#313538",
+                      "surface-tint": "#b2cdb9",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#4c4634",
+                      "surface-dim": "#101417",
+                      "on-primary-fixed-variant": "#344c3d",
+                      "on-secondary": "#113444",
+                      "on-error": "#690005",
+                      "on-background": "#e0e3e7",
+                      "surface-bright": "#363a3d",
+                      "on-tertiary-fixed": "#201b0c",
+                      "on-primary-fixed": "#082013",
+                      "on-surface-variant": "#c2c8c1",
+                      "tertiary-fixed": "#ece2c9",
+                      "tertiary": "#cfc6ae",
+                      "on-tertiary-container": "#3b3625",
+                      "on-tertiary": "#35301f",
+                      "primary-fixed": "#cee9d4",
+                      "on-surface": "#e0e3e7",
+                      "surface-container": "#1c2023",
+                      "on-secondary-fixed": "#001e2b",
+                      "tertiary-container": "#a79f89",
+                      "secondary-fixed-dim": "#aacbdf",
+                      "inverse-surface": "#e0e3e7",
+                      "background": "#101417"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "max-width": "1200px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-xl": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<div class="hidden md:block" id="cursor"></div>
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-surface/90 backdrop-blur-sm border-b border-outline-variant dark:border-surface-variant docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto h-16">
+<div class="text-headline-lg font-headline-lg text-primary dark:text-primary-fixed-dim tracking-tighter cursor-default">
+                Maker.Dev
+            </div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#projects">Projects</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center gap-2 bg-primary text-on-primary px-4 py-2 text-label-md font-label-md hover:translate-y-[2px] hover:translate-x-[2px] transition-transform shadow-[2px_2px_0px_#8ca693]">
+                    Resume
+                </button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center h-8 w-8">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto pb-24">
+<!-- Hero Section -->
+<section class="py-24 md:py-32 flex flex-col md:flex-row items-center gap-gutter min-h-[70vh] md:py-40 reveal" id="home">
+<div class="w-full md:w-1/2 flex flex-col"><div class="inline-flex items-center gap-2 border border-outline-variant bg-surface-container-low px-4 py-1.5 w-fit rounded-DEFAULT mb-4">
+<span class="w-2 h-2 bg-primary animate-pulse"></span>
+<span class="text-label-md font-label-md text-secondary">System.Status: Online</span>
+</div>
+<h1 class="text-headline-xl font-headline-xl text-on-surface mb-2">
+                    Building digital experiences with heart and code.
+                </h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md mb-8">
+                    Bridging the gap between high-tech precision and human-centric warmth through thoughtful, tactile interfaces.
+                </p>
+<div class="flex gap-4">
+<a class="inline-block border border-primary bg-surface text-primary px-6 py-3 text-label-md font-label-md hover:bg-primary hover:text-on-primary transition-colors hover:translate-y-[2px] hover:translate-x-[2px] shadow-[2px_2px_0px_#8ca693]" href="#projects">
+                        View Log
+                    </a>
+</div></div>
+<div class="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center relative">
+<div class="absolute inset-0 bg-dither opacity-50 z-0"></div>
+<img alt="A retro pixel art illustration of a computer setup by a window at night, evoking a cozy lo-fi aesthetic." class="w-full max-w-md relative z-10 border border-outline-variant shadow-[4px_4px_0px_#424843] hero-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9CPt2bZXPTrbus7mQ371f8w_4l_ucVojSDnFtoBbAr_gVJd5c8hRgcK6RMIVFMhQMrj1yJR4vXlj41cGyuyydlHsdbAUkeATJCzZHduO_RzRbk8kscIkxyvfCdCMSyZMdhJGOR7f8GkhK2lJNuLYfUl8sITkXdMnJ_8GGQrr0eVlHZi2SEiLJeCqOKShZ0MpeEjOPmO9ZW-p-jzt3VCGgrs1m6DQlExxUdhQAgi2UkV08gjHHD4Yfiv48-21jtPU-lphMm2mMK_8"/>
+</div>
+</section>
+<!-- Projects Grid -->
+<section class="py-24 border-t border-outline-variant reveal" id="projects">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-12 flex items-center gap-4">
+<span class="text-secondary text-headline-lg font-headline-lg">/*</span> Featured.Projects
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8"><!-- Project 1 -->
+<div class="flex flex-col group gap-4 bg-surface-container-low p-4 border border-outline-variant h-full transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[6px_6px_0px_#101417] tilt-card">
+<div class="border border-outline-variant overflow-hidden shadow-[4px_4px_0px_#101417]">
+<img alt="Dashboard Mockup" class="w-full object-cover aspect-video hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH9ZVYrCwZA-7090ICpEYUNFK4VfyHnHQwkeBiHt2tvwVLngUBDmQD_MFD4o1CWB5Dh8WwoPPtRB6XD4wCvuvbNrTCx5ycwUUSMpNik9_A5NCYNY64ESCWZr43VSt5HtwcoQ-YSN-wDE1zzIjkjSPUeQSTVK8jEMKAvDbHkxTeGhxre00f1f4b4-97fv7wnMKOUrHx41pfyzxy2Kfm3bgdXRtgkBtWTp4NAzyjJi19YHsqWOs3X9VHJlxxLcVhmxOF4dIOgjMieW4"/>
+</div>
+<div class="flex flex-col flex-grow">
+<h3 class="font-headline-lg text-on-surface mb-2 text-label-md uppercase tracking-wider">System Analytics Dashboard</h3>
+<p class="font-body-md text-on-surface-variant text-body-sm mb-4 flex-grow">
+            A high-fidelity UI mockup of a modern web application dashboard focused on data visualization and professional software engineering metrics.
+        </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">React</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">D3.js</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">Tailwind CSS</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="flex flex-col group gap-4 bg-surface-container-low p-4 border border-outline-variant h-full transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[6px_6px_0px_#101417] tilt-card">
+<div class="border border-outline-variant overflow-hidden shadow-[4px_4px_0px_#101417]">
+<img alt="Mobile App Mockup" class="w-full object-cover aspect-video hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRhnU5aOzqmm5myXBh2FnD-cGDKdSJHHZ-KUzg3mzacUJEBn8yNRenuSRzPYre7fhC92NaqVKY27E6s9FelRRVK-q92e8t7KKkrSSQ8cQecwm6ZuSpMhhcNljneqMcjxO_YW6Nm7tc8ai4rQn92sWLphRwYncXwQZF9R9ZPHxtkSaXrypBvyWh0luLLRcULMoYKK9VX7sLpCvqitRP6e3cNz0Mld26L-K4idJ-bA4gul4vdqMnbHQHV98HWw4PVpQbJj6pVig5aVQ"/>
+</div>
+<div class="flex flex-col flex-grow">
+<h3 class="font-headline-lg text-on-surface mb-2 text-label-md uppercase tracking-wider">Project Catalyst App</h3>
+<p class="font-body-md text-on-surface-variant text-body-sm mb-4 flex-grow">
+            A high-fidelity mobile app UI mockup featuring minimalist design, user-centric navigation, and creative micro-interactions.
+        </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">Framer Motion</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">React Native</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">Figma</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="flex flex-col group gap-4 bg-surface-container-low p-4 border border-outline-variant h-full transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[6px_6px_0px_#101417] tilt-card">
+<div class="border border-outline-variant overflow-hidden bg-surface-container-low flex justify-center shadow-[4px_4px_0px_#101417]">
+<img alt="Circuit Wave" class="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvtRURAXOQ4vJhO8-mQq1yJGpLq8WLDltHP2YDK3i34UKNC-lBQ4DG45906I8vaBzqGZvzbsHulRuYKml3STBjD8pD2mOel1lrTgiRcS3HKcpzgas2oy3tyqXZ6-VwYbj6EMZnbXzpakNBfpUuy36u4LtWucM2DoYe1PIj091RQ-wHgn4Y6T-6rqBUk8aErWyWbGLKPezxah3yCSvOoINaMBIoeghKUWiSjgtTIQ-M9sP2DMnuc4eeCsp7u35n_RO4Ox9xqqvhWnM"/>
+</div>
+<div class="flex flex-col flex-grow">
+<h3 class="font-headline-lg text-on-surface mb-2 text-label-md uppercase tracking-wider">The Great Circuit Wave</h3>
+<p class="font-body-md text-on-surface-variant text-body-sm mb-4 flex-grow">
+            A conceptual illustration bridging traditional art motifs with modern electronic schematic aesthetics.
+        </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">SVG</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">CSS Animations</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">A11y</span>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="flex flex-col group gap-4 bg-surface-container-low p-4 border border-outline-variant h-full transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[6px_6px_0px_#101417] tilt-card">
+<div class="border border-outline-variant overflow-hidden shadow-[4px_4px_0px_#101417]">
+<img alt="UserSense Dashboard" class="w-full object-cover aspect-video hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/ADBb0uga_3ZKGPilJLaKNYDLXmvZ1SPmx1QykhwiQC8y4mX7-Oe-Z7rqRDqgBycCb22e_lHrSfyfjxJ8ZJBMgxYQ2MJi9nlwAGCEN_Q471NH4yPPTs8MalDRZzd8bf9YRBpv2n2pw5HNbE6zWv0CTWHHGemfi2DNe-kgHy3Or7VV1RQZ1NOXJ5upT2as9ro2mOrxicUvPCI1XwTqEDV4UNJy4nU9sgNtYE5gs3NP7mEFL5UGxRzzvPVbG0gyTg"/>
+</div>
+<div class="flex flex-col flex-grow">
+<h3 class="font-headline-lg text-on-surface mb-2 text-label-md uppercase tracking-wider">UserSense Dashboard</h3>
+<p class="font-body-md text-on-surface-variant text-body-sm mb-4 flex-grow">
+            A behavioral analytics platform designed to capture micro-interactions and heatmaps during qualitative research sessions.
+        </p>
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">TypeScript</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">Node.js</span>
+<span class="text-[10px] font-label-md px-2 py-0.5 bg-surface border border-outline-variant text-on-surface-variant">PostgreSQL</span>
+</div>
+</div>
+</div></div>
+</section><section class="py-24 border-t border-outline-variant reveal" id="tech-stack"><h2 class="text-headline-lg font-headline-lg text-on-surface mb-12 flex items-center gap-4"><span class="text-secondary text-headline-lg font-headline-lg">/*</span> Tech.Stack</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-12"><div class="flex flex-col gap-6"><h3 class="text-label-md font-label-md text-primary uppercase tracking-widest border-b border-surface-variant pb-2">Front-End Core</h3><div class="flex flex-wrap gap-3"><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.1s;"><span class="material-symbols-outlined text-[18px]">code</span>React</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.2s;"><span class="material-symbols-outlined text-[18px]">code</span>TypeScript</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.3s;"><span class="material-symbols-outlined text-[18px]">code</span>JavaScript</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.4s;"><span class="material-symbols-outlined text-[18px]">code</span>HTML/CSS</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.5s;"><span class="material-symbols-outlined text-[18px]">code</span>Bootstrap</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.6s;"><span class="material-symbols-outlined text-[18px]">palette</span>Figma</span></div></div><div class="flex flex-col gap-6"><h3 class="text-label-md font-label-md text-primary uppercase tracking-widest border-b border-surface-variant pb-2">Back-End &amp; Data</h3><div class="flex flex-wrap gap-3"><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.1s;"><span class="material-symbols-outlined text-[18px]">terminal</span>Python</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.2s;"><span class="material-symbols-outlined text-[18px]">terminal</span>Java</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.3s;"><span class="material-symbols-outlined text-[18px]">settings_input_component</span>Spring Boot</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.4s;"><span class="material-symbols-outlined text-[18px]">database</span>MySQL</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.5s;"><span class="material-symbols-outlined text-[18px]">query_stats</span>Tableau</span><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.6s;"><span class="material-symbols-outlined text-[18px]">analytics</span>Google Analytics</span></div></div><div class="flex flex-col gap-6"><h3 class="text-label-md font-label-md text-primary uppercase tracking-widest border-b border-surface-variant pb-2">Tools</h3><div class="flex flex-wrap gap-3"><span class="flex items-center gap-2 px-4 py-2 bg-surface-container border border-primary text-on-surface font-label-md text-body-md rounded shadow-[2px_2px_0px_#8ca693] tech-pill" style="transition-delay: 0.1s;"><span class="material-symbols-outlined text-[18px]">construction</span>Git</span></div></div></div></section>
+<!-- Experience Section -->
+<section class="py-24 border-t border-outline-variant reveal" id="experience">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-12 flex items-center gap-4">
+<span class="text-secondary text-headline-lg font-headline-lg">&gt;&gt;</span> Experience.Log
+            </h2>
+<div class="flex flex-col">
+<!-- Timeline Item 1 -->
+<div class="flex gap-6 md:gap-12 relative group">
+<!-- Timeline Line & Dot -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-low border-2 border-primary flex items-center justify-center text-primary font-label-md z-10 shadow-[4px_4px_0px_#101417] timeline-dot" style="transition-delay: 0.2s;">
+                            2024
+                        </div>
+<div class="w-px h-full bg-outline-variant absolute top-16 bottom-0 left-8 -translate-x-1/2 group-last:hidden timeline-line" style="transition-delay: 0.4s;"></div>
+</div>
+<!-- Content Card -->
+<div class="bg-surface-container-low border border-tertiary p-8 flex-grow mb-12 shadow-[4px_4px_0px_#424843]">
+<h3 class="text-headline-lg-mobile font-headline-lg text-on-surface mb-1">Senior UX Engineer</h3>
+<p class="text-primary font-label-md mb-4 uppercase tracking-widest">TechCorp Industries</p>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                            Leading design systems and bridging the gap between high-fidelity prototypes and production-ready front-end code. Mentoring junior developers in accessibility standards.
+                        </p>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="flex gap-6 md:gap-12 relative group">
+<!-- Timeline Line & Dot -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center text-on-surface-variant font-label-md z-10 transition-colors timeline-dot" style="transition-delay: 0.6s;">
+                            2021
+                        </div>
+<div class="w-px h-full bg-outline-variant absolute top-16 bottom-0 left-8 -translate-x-1/2 group-last:hidden timeline-line" style="transition-delay: 0.8s;"></div>
+</div>
+<!-- Content Card -->
+<div class="bg-surface border border-outline-variant p-8 flex-grow mb-12">
+<h3 class="text-headline-lg-mobile font-headline-lg text-on-surface mb-1">Front-End Developer</h3>
+<p class="text-secondary font-label-md mb-4 uppercase tracking-widest">Digital Solutions Agency</p>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                            Developed responsive, accessible web applications focusing on performance and clean architecture. Integrated behavioral analytics for data-driven design decisions.
+                        </p>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="flex gap-6 md:gap-12 relative group">
+<!-- Timeline Line & Dot -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center text-on-surface-variant font-label-md z-10 transition-colors timeline-dot" style="transition-delay: 1s;">
+                            2018
+                        </div>
+<div class="w-px h-full bg-outline-variant absolute top-16 bottom-0 left-8 -translate-x-1/2 group-last:hidden"></div>
+</div>
+<!-- Content Card -->
+<div class="bg-surface border border-outline-variant p-8 flex-grow">
+<h3 class="text-headline-lg-mobile font-headline-lg text-on-surface mb-1">UI Designer</h3>
+<p class="text-secondary font-label-md mb-4 uppercase tracking-widest">Creative Studio</p>
+<p class="text-body-md font-body-md text-on-surface-variant">
+                            Created intuitive user interfaces and detailed design mockups. Established foundational style guides and UI pattern libraries.
+                        </p>
+</div>
+</div>
+</div>
+</section><section class="py-24 border-t border-outline-variant reveal" id="education"><h2 class="text-headline-lg font-headline-lg text-on-surface mb-12 flex items-center gap-4"><span class="text-secondary text-headline-lg font-headline-lg">&gt;&gt;</span> Education.Log</h2><div class="flex flex-col"><!-- Timeline Item 1 --><div class="flex gap-6 md:gap-12 relative group"><!-- Timeline Line & Dot --><div class="flex flex-col items-center"><div class="w-16 h-16 rounded-full bg-surface-container-low border-2 border-primary flex items-center justify-center text-primary font-label-md z-10 shadow-[4px_4px_0px_#101417] timeline-dot" style="transition-delay: 0.2s;">2018</div><div class="w-px h-full bg-outline-variant absolute top-16 bottom-0 left-8 -translate-x-1/2 group-last:hidden timeline-line" style="transition-delay: 0.4s;"></div></div><!-- Content Card --><div class="bg-surface-container-low border border-outline-variant p-8 flex-grow mb-12 shadow-[4px_4px_0px_#424843]"><h3 class="text-headline-lg-mobile font-headline-lg text-on-surface mb-1">UX Design Certification</h3><p class="text-primary font-label-md mb-4 uppercase tracking-widest">Creative Arts Institute</p><p class="text-body-md font-body-md text-on-surface-variant">Intensive program focused on user research, wireframing, and accessibility standards.</p></div></div><!-- Timeline Item 2 --><div class="flex gap-6 md:gap-12 relative group"><!-- Timeline Line & Dot --><div class="flex flex-col items-center"><div class="w-16 h-16 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center text-on-surface-variant font-label-md z-10 transition-colors timeline-dot" style="transition-delay: 0.6s;">2014</div><div class="w-px h-full bg-outline-variant absolute top-16 bottom-0 left-8 -translate-x-1/2 group-last:hidden"></div></div><!-- Content Card --><div class="bg-surface border border-outline-variant p-8 flex-grow"><h3 class="text-headline-lg-mobile font-headline-lg text-on-surface mb-1">B.S. in Computer Science</h3><p class="text-secondary font-label-md mb-4 uppercase tracking-widest">University of Technology (2014 - 2018)</p><p class="text-body-md font-body-md text-on-surface-variant">Specialized in Human-Computer Interaction and Frontend Engineering.</p></div></div></div></section>
+<!-- About Section -->
+<section class="py-24 border-t border-outline-variant relative reveal" id="about">
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<div class="w-full md:w-1/3">
+<img alt="A collection of small, monochromatic 8-bit pixel art cat icons in various expressions." class="w-full border border-outline-variant shadow-[4px_4px_0px_#424843] glitch-hover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfHEvrW1VQFug64LLE5bmanUambV-Ivpe1utt0OP7aLQg3PRNQ5d1qaYPT7aMUUA2AqM3pt8qPiXNTVDGFE1dZATA03tzy7ZbRjMWNN3lvquub3mngFTbXygPAxwySDze_sUh0DtaxqzBTOxPoJgWqXFoHKbuHJQN0XEDN4sxERBehK9LYhzYJcemavPeOTFX1XuQ1SBoRcIk7EqSSOxsID__bIGR0uNpKGZ432KUIEys2qRMM_M1AZ80gS6zeMuAeRAcHSJr_EAY"/>
+</div>
+<div class="w-full md:w-2/3 flex flex-col gap-8">
+<h2 class="text-headline-lg font-headline-lg text-on-surface">
+<span class="text-secondary text-headline-lg font-headline-lg">::</span> Core.Logics
+                    </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<h3 class="text-label-md font-label-md text-primary uppercase tracking-widest border-b border-surface-variant pb-2 inline-block w-fit">01. Human-Centric</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">Technology should adapt to people, not the other way around. Accessibility and empathy are foundational, not afterthoughts.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-label-md font-label-md text-primary uppercase tracking-widest border-b border-surface-variant pb-2 inline-block w-fit">02. Clean Architecture</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">Systems built for longevity require modularity and clarity. Simplicity in logic breeds resilience in execution.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="text-label-md font-label-md text-primary uppercase tracking-widest border-b border-surface-variant pb-2 inline-block w-fit">03. Tactile Aesthetics</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">Interfaces should feel grounded. Borrowing the deliberate, mechanical feel of older hardware to create digital spaces that feel real.</p>
+</div>
+</div>
+</div>
+</div>
+<a class="absolute bottom-0 right-0 inline-block border border-primary bg-surface text-primary px-6 py-3 text-label-md font-label-md hover:bg-primary hover:text-on-primary transition-colors hover:translate-y-[2px] hover:translate-x-[2px] shadow-[2px_2px_0px_#8ca693] mb-0" href="#about">About Me</a></section>
+<!-- Contact Section -->
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-surface-variant full-width py-12 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto gap-gutter">
+<div class="text-label-md font-label-md text-on-surface">
+                © 2024 Built with lo-fi vibes &amp; precision code.
+            </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all text-label-md font-label-md" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all text-label-md font-label-md" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary underline underline-offset-4 transition-all text-label-md font-label-md" href="#">Source</a>
+</div>
+</div>
+</footer>
+<script>
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+    });
+
+    // Hover tilt effect for cards
+    const cards = document.querySelectorAll('.tilt-card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+            
+            card.style.setProperty('--rotateX', `${rotateX}deg`);
+            card.style.setProperty('--rotateY', `${rotateY}deg`);
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--rotateX', '0deg');
+            card.style.setProperty('--rotateY', '0deg');
+        });
+    });
+
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    if (window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+    } else {
+        cursor.style.display = 'none';
+    }
+</script>
+</body></html>
