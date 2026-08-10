@@ -1,0 +1,23 @@
+[
+  {
+    "institution": "Queensland University Of Technology",
+    "program": "Graduate Certificate of IT (Computer Science)",
+    "year": "2026",
+    "period": "Feb 2026 – Jul 2026",
+    "details": "Rapid Web Development with databases, Systems Innovation, Network Security, Machine Learning"
+  },
+  {
+    "institution": "_nology",
+    "program": "Software Engineering Program (Bootcamp)",
+    "year": "2025",
+    "period": "Mar 2025 - Jul 2025",
+    "details": "Intensive 12-week program covering full-stack development skills including: HTML/CSS, Javascript, React.js, Vite, SQL, Java, Spring Boot, AWS S3/EC2, Next.js"
+  },
+  {
+    "institution": "The University Of Sydney",
+    "program": "Bachelor of Arts (Design & Digital Cultures)",
+    "yearCompleted": "2023",
+    "period": "Mar 2020 - Dec 2023",
+    "details": "Data Visualization & Informatics, Human-Computer Interaction, User Research; Student Exchange Programs: Korea University, Rikkyo University; Extracurricular: MIXSOC President, Student Peer Mentor, Global Citizenship Award"
+  }
+]

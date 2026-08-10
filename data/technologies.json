@@ -1,0 +1,26 @@
+[
+  {
+    "title": "AWS",
+    "icon": "https://cdn.simpleicons.org/amazonaws"
+  },
+  {
+    "title": "NodeJS",
+    "icon": "https://cdn.simpleicons.org/nodedotjs"
+  },
+  {
+    "title": "React",
+    "icon": "https://cdn.simpleicons.org/react"
+  },
+  {
+    "title": "Tailwind CSS",
+    "icon": "https://cdn.simpleicons.org/tailwindcss"
+  },
+  {
+    "title": "TypeScript",
+    "icon": "https://cdn.simpleicons.org/typescript"
+  },
+  {
+    "title": "Vercel",
+    "icon": "https://cdn.simpleicons.org/vercel"
+  }
+]
