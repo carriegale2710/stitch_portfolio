@@ -1,45 +1,35 @@
 [
   {
+    "id": "indigenous-library",
     "title": "Indigenous Academic Library",
     "description": "Web application for a public library to manage culturally-sensitive materials from a local Indigenous community. Features include role-based access control, user session management, and password hashing.",
-    "technologies": ["Flask", "Python", "MySQL", "AWS"],
+    "tags": ["Flask", "Python", "MySQL", "AWS"],
     "icon": "assets/project/libraryIcon",
-    "detailsUrl": "/projects/indigenous-library",
+    "image": "assets/images/project/indigenous-library/hero.png",
+    "pageUrl": "pages/project/indigenous-library.html",
     "demoUrl": "https://indigenouslibrary.site/",
     "githubUrl": "https://github.com/carriegale2710/indigenous-library"
   },
   {
+    "id": "trivia-game",
     "title": "Trivia Game",
     "description": "Play trivia with Questions fetched from Open Trivia Database. Users can keep track of the quiz games they played with token based session history.",
-    "technologies": ["React", "Typescript", "Java", "Spring Boot", "MySQL"],
+    "tags": ["React", "Typescript", "Java", "Spring Boot", "MySQL"],
     "icon": "assets/project/triviaIcon",
-    "detailsUrl": "/projects/trivia",
+    "image": "assets/images/project/trivia/hero.png",
+    "pageUrl": "pages/project/trivia-game.html",
     "demoUrl": "https://mytriviagame.lol",
     "githubUrl": "https://github.com/carriegale2710/trivia"
   },
   {
+    "id": "employee-creator",
     "title": "Employee Management System",
     "description": "Full-stack CRUD application for managing employee records and contracts. Built over 4 weeks as a solo project, it demonstrates enterprise-level development practices including comprehensive testing, CI/CD deployment, and scalable architecture.",
-    "technologies": [
-      "React",
-      "Typescript",
-      "SASS",
-      "Java",
-      "Spring Boot",
-      "MySQL"
-    ],
+    "tags": ["React", "Typescript", "SASS", "Java", "Spring Boot", "MySQL"],
     "icon": "assets/project/employeeCreatorIcon.svg",
-    "detailsUrl": "/projects/employee-creator",
+    "image": "assets/images/project/employee-creator/hero.png",
+    "pageUrl": "pages/project/employee-creator.html",
     "demoUrl": "https://employeecreator.site/",
     "githubUrl": "https://github.com/carriegale2710/employee-creator"
-  },
-  {
-    "title": "Minesweeper Game",
-    "description": "A simplified version of the game Minesweeper to be played in the java console.",
-    "technologies": ["Java"],
-    "icon": "assets/project/minesweeperIcon",
-    "detailsUrl": "/projects/minesweeper",
-    "demoUrl": "",
-    "githubUrl": "https://github.com/carriegale2710/minesweeper/"
   }
 ]
