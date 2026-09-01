@@ -13,6 +13,7 @@ This is a developer portfolio project that showcases my skills, projects, and ex
 
 - Google Stitch (UI)
 - Figma (UI)
+- Trello (Project management): [Board Link](https://trello.com/b/28FsylUp/portfolio-website)
 
 ## Features
 
@@ -40,14 +41,36 @@ This is a developer portfolio project that showcases my skills, projects, and ex
 - [ ] Add Contact me form
 - [ ] Add personal logo
 - [ ] Update favicon
-- [ ] Add photo carousel for about section
 
 ## Bonus
 
-- Add Google Analytics for improvement insights
+- [ ] Add repsonsive light mode
+- [ ] Add photo carousel for about section
+- [ ] Add Google Analytics for improvement insights
 
 ## Bugs / Issues
 
-- Top nav bar links don't respond to where you are on the page (Home/Projects/Contact etc. underline focus is not responsive yet)
-- Links not working: About me button (delete), Resume, Contact, Github profile link next to Resume
-- Education section a bit cramped
+- [ ] Update the json files in data folder to actually match whats shown
+- [ ] Top nav bar links don't respond to where you are on the page (Home/Projects/Contact etc. underline focus is not responsive yet)
+- [ ] Links not working: About me button (delete), Resume, Contact, Github profile link next to Resume
+- [ ] Education section a bit cramped
+
+## Project Directory
+
+### Assets Folder
+
+These assets are directly used in the Website. Includes:
+
+- images
+- profile photos
+- icons
+
+> Remember to update links if you move assets between folders.
+
+### Data Folder
+
+Store json files here containing content to be loaded onto the pages. Not linked but here in case we later move to React later on.
+
+### Design Folder
+
+Used to store any design systems, wireframes, mockups, copywriting, planning docs.
