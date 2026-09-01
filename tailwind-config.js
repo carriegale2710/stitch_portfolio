@@ -3,6 +3,11 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
+        "brand-bg": "#101417",
+        "brand-sage": "#b2cdb9",
+        "brand-slate": "#aacbdf",
+        "brand-cream": "#cfc6ae",
+        "brand-card": "#1a1f23",
         "surface-container-low": "#181c1f",
         surface: "#101417",
         "on-primary": "#1e3527",
@@ -71,6 +76,8 @@ tailwind.config = {
         "headline-xl": ["JetBrains Mono"],
         "body-sm": ["Hanken Grotesk"],
         "body-md": ["Hanken Grotesk"],
+        sans: ['"Hanken Grotesk"', "sans-serif"],
+        mono: ['"JetBrains Mono"', "monospace"],
       },
       fontSize: {
         "label-md": [
@@ -116,6 +123,13 @@ tailwind.config = {
             fontWeight: "400",
           },
         ],
+      },
+      borderWidth: {
+        1: "1px",
+      },
+      boxShadow: {
+        offset: "4px 4px 0px 0px rgba(178, 205, 185, 0.2)",
+        "offset-hover": "6px 6px 0px 0px rgba(178, 205, 185, 0.3)",
       },
     },
   },

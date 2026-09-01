@@ -5,10 +5,43 @@
     "GRAD" 0,
     "opsz" 24;
 }
+
+body {
+  background-color: #101417;
+  color: #a2a8a1;
+}
+
 /* Dithered pattern for subtle texture */
 .bg-dither {
   background-image: radial-gradient(#424843 1px, transparent 1px);
   background-size: 4px 4px;
+}
+
+.border-outline {
+  border: 1px solid #aacbdf;
+}
+
+.border-accent {
+  border: 1px solid #b2cdb9;
+}
+
+/* Dashed connecting line for features */
+.feature-connector {
+  position: relative;
+}
+.feature-connector::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -3rem;
+  width: 2rem;
+  height: 1px;
+  border-top: 1px dashed #aacbdf;
+}
+@media (max-width: 768px) {
+  .feature-connector::before {
+    display: none;
+  }
 }
 
 /* Animations */
