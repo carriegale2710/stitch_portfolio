@@ -1,26 +1,29 @@
-const loadPartial = (placeholderId, fileName) => {
+async function loadPartial(placeholderId, fileName) {
   const placeholder = document.getElementById(placeholderId);
-
   if (!placeholder) return;
 
-  fetch(fileName)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Failed to load ${fileName}: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then((html) => {
-      placeholder.innerHTML = html;
-    })
-    .catch((error) => {
-      console.error(error);
-      placeholder.innerHTML = "";
-    });
-};
+  try {
+    const response = await fetch(fileName);
+    if (!response.ok) {
+      throw new Error(`Failed to load ${fileName}: ${response.status}`);
+    }
 
-loadPartial("header-placeholder", "partials/header.html");
-loadPartial("footer-placeholder", "partials/footer.html");
+    const html = await response.text();
+    placeholder.innerHTML = html;
+  } catch (error) {
+    console.error(error);
+    placeholder.innerHTML = "";
+  }
+}
+
+async function loadSharedLayout() {
+  await Promise.all([
+    loadPartial("header-placeholder", "partials/header.html"),
+    loadPartial("footer-placeholder", "partials/footer.html"),
+  ]);
+}
+
+document.addEventListener("DOMContentLoaded", loadSharedLayout);
 
 // Intersection Observer for reveal animations
 const observer = new IntersectionObserver(
