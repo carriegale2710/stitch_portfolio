@@ -1,3 +1,27 @@
+const loadPartial = (placeholderId, fileName) => {
+  const placeholder = document.getElementById(placeholderId);
+
+  if (!placeholder) return;
+
+  fetch(fileName)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load ${fileName}: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((html) => {
+      placeholder.innerHTML = html;
+    })
+    .catch((error) => {
+      console.error(error);
+      placeholder.innerHTML = "";
+    });
+};
+
+loadPartial("header-placeholder", "partials/header.html");
+loadPartial("footer-placeholder", "partials/footer.html");
+
 // Intersection Observer for reveal animations
 const observer = new IntersectionObserver(
   (entries) => {
