@@ -23,6 +23,27 @@ async function loadSharedLayout() {
     loadPartial("header-placeholder", `${partialsPath}/header.html`),
     loadPartial("footer-placeholder", `${partialsPath}/footer.html`),
   ]);
+
+  const header = document.querySelector(".site-header");
+  let lastScrollY = window.scrollY;
+
+  if (header) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY <= 0 || currentScrollY < lastScrollY) {
+          header.classList.remove("header--hidden");
+        } else if (currentScrollY > lastScrollY) {
+          header.classList.add("header--hidden");
+        }
+
+        lastScrollY = currentScrollY;
+      },
+      { passive: true },
+    );
+  }
 }
 
 document.addEventListener("DOMContentLoaded", loadSharedLayout);

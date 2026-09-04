@@ -11,6 +11,29 @@ body {
   color: #a2a8a1;
 }
 
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  transition: transform 0.25s ease-in-out;
+}
+
+#header-placeholder {
+  height: 4rem;
+}
+
+.site-header.header--hidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+  }
+}
+
 /* Dithered pattern for subtle texture */
 .bg-dither {
   background-image: radial-gradient(#424843 1px, transparent 1px);
