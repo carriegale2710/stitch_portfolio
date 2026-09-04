@@ -17,9 +17,11 @@ async function loadPartial(placeholderId, fileName) {
 }
 
 async function loadSharedLayout() {
+  const partialsPath = document.body.dataset.partialsPath || "partials";
+
   await Promise.all([
-    loadPartial("header-placeholder", "partials/header.html"),
-    loadPartial("footer-placeholder", "partials/footer.html"),
+    loadPartial("header-placeholder", `${partialsPath}/header.html`),
+    loadPartial("footer-placeholder", `${partialsPath}/footer.html`),
   ]);
 }
 
