@@ -1,26 +1,74 @@
 [
   {
-    "title": "AWS",
-    "icon": "https://cdn.simpleicons.org/amazonaws"
-  },
-  {
-    "title": "NodeJS",
-    "icon": "https://cdn.simpleicons.org/nodedotjs"
-  },
-  {
     "title": "React",
     "icon": "https://cdn.simpleicons.org/react"
-  },
-  {
-    "title": "Tailwind CSS",
-    "icon": "https://cdn.simpleicons.org/tailwindcss"
   },
   {
     "title": "TypeScript",
     "icon": "https://cdn.simpleicons.org/typescript"
   },
   {
+    "title": "HTML/CSS",
+    "icon": "https://cdn.simpleicons.org/html5"
+  },
+  {
+    "title": "Tailwind CSS",
+    "icon": "https://cdn.simpleicons.org/tailwindcss"
+  },
+  {
+    "title": "SASS",
+    "icon": "https://cdn.simpleicons.org/sass"
+  },
+  {
+    "title": "Figma",
+    "icon": "https://cdn.simpleicons.org/figma"
+  },
+  {
+    "title": "Python",
+    "icon": "https://cdn.simpleicons.org/python"
+  },
+  {
+    "title": "Java",
+    "icon": "https://cdn.simpleicons.org/openjdk"
+  },
+  {
+    "title": "Spring Boot",
+    "icon": "https://cdn.simpleicons.org/springboot"
+  },
+  {
+    "title": "Flask",
+    "icon": "https://cdn.simpleicons.org/flask"
+  },
+  {
+    "title": "MySQL",
+    "icon": "https://cdn.simpleicons.org/mysql"
+  },
+  {
+    "title": "PostgreSQL",
+    "icon": "https://cdn.simpleicons.org/postgresql"
+  },
+  {
+    "title": "Git",
+    "icon": "https://cdn.simpleicons.org/git"
+  },
+  {
+    "title": "Github Actions",
+    "icon": "https://cdn.simpleicons.org/githubactions"
+  },
+  {
+    "title": "AWS",
+    "icon": "https://cdn.simpleicons.org/amazonaws"
+  },
+  {
     "title": "Vercel",
     "icon": "https://cdn.simpleicons.org/vercel"
+  },
+  {
+    "title": "Supabase",
+    "icon": "https://cdn.simpleicons.org/supabase"
+  },
+  {
+    "title": "Firebase",
+    "icon": "https://cdn.simpleicons.org/firebase"
   }
 ]
