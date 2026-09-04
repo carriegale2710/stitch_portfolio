@@ -35,18 +35,19 @@ This is a developer portfolio project that showcases my skills, projects, and ex
 - [x] Change links
 - [x] Change text copy text for projects,exp,edu,hero
 - [x] Add resume download button
-- [ ] Replace project images
-- [ ] Deploy with Github Pages/Vercel
+- [x] Replace project images
+- [x] Deploy with Github Pages/Vercel
 - [ ] Replace about section copy text
-- [ ] Add Contact me form
-- [ ] Add personal logo
+- [x] Add Contact me form
+- [ ] make contact form work
+- ~~[ ] Add personal logo~~
 - [ ] Update favicon
 
 ## Bonus
 
-- [ ] Add repsonsive light mode
+- ~~[ ] Add repsonsive light mode~~
 - [ ] Add photo carousel for about section
-- [ ] Add Google Analytics for improvement insights
+- ~~[ ] Add Google Analytics for improvement insights~~
 
 ## Bugs / Issues
 
@@ -54,6 +55,8 @@ This is a developer portfolio project that showcases my skills, projects, and ex
 - [ ] Top nav bar links don't respond to where you are on the page (Home/Projects/Contact etc. underline focus is not responsive yet)
 - [ ] Links not working: About me button (delete), Resume, Contact, Github profile link next to Resume
 - [ ] Education section a bit cramped
+- [ ] Update resume pdf
+- [ ] fix contact button in nav bar
 
 ## Project Directory
 
