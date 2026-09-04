@@ -1,0 +1,35 @@
+[
+  {
+    "category": "Front-End Core",
+    "items": [
+      { "name": "React", "symbol": "code" },
+      { "name": "TypeScript", "symbol": "code" },
+      { "name": "HTML/CSS", "symbol": "code" },
+      { "name": "Tailwind CSS", "symbol": "code" },
+      { "name": "SASS", "symbol": "code" },
+      { "name": "Figma", "symbol": "palette" }
+    ]
+  },
+  {
+    "category": "Back-End & Data",
+    "items": [
+      { "name": "Python", "symbol": "terminal" },
+      { "name": "Java", "symbol": "terminal" },
+      { "name": "Spring Boot", "symbol": "settings_input_component" },
+      { "name": "Flask", "symbol": "database" },
+      { "name": "MySQL", "symbol": "database" },
+      { "name": "PostgreSQL", "symbol": "database" }
+    ]
+  },
+  {
+    "category": "Tools",
+    "items": [
+      { "name": "Git", "symbol": "construction" },
+      { "name": "Github Actions", "symbol": "construction" },
+      { "name": "AWS", "symbol": "construction" },
+      { "name": "Vercel", "symbol": "construction" },
+      { "name": "Supabase", "symbol": "construction" },
+      { "name": "Firebase", "symbol": "construction" }
+    ]
+  }
+]
