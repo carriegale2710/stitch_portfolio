@@ -632,7 +632,13 @@
           <p class="text-body-md font-body-md text-on-surface-variant mb-8">
             Have a question or want to work together? Feel free to reach out!
           </p>
-          <form class="flex flex-col gap-6">
+          <form id="contact-form" class="flex flex-col gap-6">
+            <!-- Required: Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="72d157fe-4b77-4a4b-ac64-b3ef01e075ea" />
+          
+            <!-- Optional: Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+          
             <div class="flex flex-col gap-2">
               <label
                 for="name"
@@ -643,10 +649,13 @@
               <input
                 type="text"
                 id="name"
+                name="name"
+                required
                 class="bg-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Your name"
               />
             </div>
+          
             <div class="flex flex-col gap-2">
               <label
                 for="email"
@@ -657,10 +666,13 @@
               <input
                 type="email"
                 id="email"
+                name="email"
+                required
                 class="bg-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Your email"
               />
             </div>
+          
             <div class="flex flex-col gap-2">
               <label
                 for="message"
@@ -670,17 +682,23 @@
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows="5"
+                required
                 class="bg-surface border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="Your message"
               ></textarea>
             </div>
+          
             <button
               type="submit"
               class="bg-primary text-on-primary px-4 py-2 text-label-md font-label-md hover:translate-y-[2px] hover:translate-x-[2px] transition-transform shadow-[2px_2px_0px_#8ca693]"
             >
               Send Message
             </button>
+          
+            <!-- Status message indicator -->
+            <p id="form-result" class="text-label-md hidden"></p>
           </form>
         </div>
       </section>
