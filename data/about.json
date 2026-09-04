@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Dev + Designer Mindset",
+    "text": "I’m a junior full‑stack dev who thinks like a designer: I care about clean code, but also about how things feel, flow, and solve real problems."
+  },
+  {
+    "label": "AI & Agentic Workflows",
+    "text": "I’ve spent time on the AI side of things—designing and testing prompts for LLMs—so I’m comfortable blending traditional dev work with agentic/AI workflows."
+  },
+  {
+    "label": "I Like Shipping",
+    "text": "I like shipping: from refactoring backend APIs in NestJS/React to taking an accessibility-focused e‑commerce idea from zero to MVP with Startmate."
+  },
+  {
+    "label": "What I’m Looking For",
+    "text": "I’m looking for roles where I can keep learning fast, own features end‑to‑end, and work with people who care about both product and craft."
+  }
+]

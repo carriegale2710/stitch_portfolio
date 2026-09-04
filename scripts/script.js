@@ -17,10 +17,33 @@ async function loadPartial(placeholderId, fileName) {
 }
 
 async function loadSharedLayout() {
+  const partialsPath = document.body.dataset.partialsPath || "partials";
+
   await Promise.all([
-    loadPartial("header-placeholder", "partials/header.html"),
-    loadPartial("footer-placeholder", "partials/footer.html"),
+    loadPartial("header-placeholder", `${partialsPath}/header.html`),
+    loadPartial("footer-placeholder", `${partialsPath}/footer.html`),
   ]);
+
+  const header = document.querySelector(".site-header");
+  let lastScrollY = window.scrollY;
+
+  if (header) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY <= 0 || currentScrollY < lastScrollY) {
+          header.classList.remove("header--hidden");
+        } else if (currentScrollY > lastScrollY) {
+          header.classList.add("header--hidden");
+        }
+
+        lastScrollY = currentScrollY;
+      },
+      { passive: true },
+    );
+  }
 }
 
 document.addEventListener("DOMContentLoaded", loadSharedLayout);

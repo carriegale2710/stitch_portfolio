@@ -50,33 +50,33 @@ colors:
   surface-variant: "#313538"
 typography:
   headline-xl:
-    fontFamily: JetBrains Mono
+    fontFamily: Geist Pixel
     fontSize: 48px
     fontWeight: "700"
     lineHeight: "1.1"
     letterSpacing: -0.02em
   headline-lg:
-    fontFamily: JetBrains Mono
+    fontFamily: Geist Pixel
     fontSize: 32px
     fontWeight: "600"
     lineHeight: "1.2"
   headline-lg-mobile:
-    fontFamily: JetBrains Mono
+    fontFamily: Geist Pixel
     fontSize: 24px
     fontWeight: "600"
     lineHeight: "1.2"
   body-md:
-    fontFamily: Hanken Grotesk
+    fontFamily: Geist Pixel
     fontSize: 16px
     fontWeight: "400"
     lineHeight: "1.6"
   body-sm:
-    fontFamily: Hanken Grotesk
+    fontFamily: Geist Pixel
     fontSize: 14px
     fontWeight: "400"
     lineHeight: "1.5"
   label-md:
-    fontFamily: JetBrains Mono
+    fontFamily: Silkscreen
     fontSize: 12px
     fontWeight: "500"
     lineHeight: "1"
@@ -114,9 +114,9 @@ Functional colors like errors should be rendered in a muted terracotta rather th
 
 ## Typography
 
-The system uses a dual-font strategy. **JetBrains Mono** provides the "technical" backbone, used for headers, labels, and code snippets to emphasize the developer focus. Its clear, monospaced rhythm ensures that even large titles feel structured and "coded."
+The system uses a dual-font strategy. **Geist Pixel** provides the pixel-inspired backbone for headings and readable interface copy. **Silkscreen** is reserved for technical labels, buttons, and code-like UI elements.
 
-For readability in long-form content (like project descriptions or blog posts), **Hanken Grotesk** is used. It is a modern, high-legibility sans-serif that softens the interface, making the experience feel human and editorial. All headers should have a slight negative letter-spacing to feel more compact and deliberate.
+The font roles map directly to Tailwind: `font-headline-xl`, `font-headline-lg`, `font-headline-lg-mobile`, `font-body-md`, and `font-body-sm` use **Geist Pixel**; `font-label-md` and `font-mono` use **Silkscreen**. All headers should have a slight negative letter-spacing to feel more compact and deliberate.
 
 ## Layout & Spacing
 
@@ -148,4 +148,4 @@ The shape language is **Soft (Level 1)**. While the aesthetic is lo-fi and pixel
 - **Cards:** Background matches the neutral charcoal but features a 1px Cream border. Header areas within cards should be separated by a 1px horizontal line.
 - **Inputs:** Darker background than the surface, with a Cream-colored monospaced cursor. No glows on focus—only a color change of the border to Sage Green.
 - **Lists:** Use custom pixel-art glyphs (like a small 8-bit square or a cat icon) as bullet points.
-- **Specialty Component - "Status Monitor":** A small UI block that mimics a terminal or status bar, showing "System Online" or "Currently Reading," rendered in JetBrains Mono.
+- **Specialty Component - "Status Monitor":** A small UI block that mimics a terminal or status bar, showing "System Online" or "Currently Reading," rendered in Silkscreen.
