@@ -50,13 +50,13 @@ colors:
   surface-variant: "#313538"
 typography:
   headline-xl:
-    fontFamily: JetBrains Mono
+    fontFamily: Pixelify Sans
     fontSize: 48px
     fontWeight: "700"
     lineHeight: "1.1"
     letterSpacing: -0.02em
   headline-lg:
-    fontFamily: JetBrains Mono
+    fontFamily: Pixelify Sans
     fontSize: 32px
     fontWeight: "600"
     lineHeight: "1.2"

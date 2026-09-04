@@ -70,14 +70,14 @@ tailwind.config = {
         gutter: "24px",
       },
       fontFamily: {
-        "label-md": ["JetBrains Mono"],
-        "headline-lg-mobile": ["JetBrains Mono"],
-        "headline-lg": ["JetBrains Mono"],
-        "headline-xl": ["JetBrains Mono"],
-        "body-sm": ["Hanken Grotesk"],
-        "body-md": ["Hanken Grotesk"],
-        sans: ['"Hanken Grotesk"', "sans-serif"],
-        mono: ['"JetBrains Mono"', "monospace"],
+        "label-md": ['"Silkscreen"', "sans-serif"],
+        "headline-lg-mobile": ['"Geist Pixel"', "sans-serif"],
+        "headline-lg": ['"Geist Pixel"', "sans-serif"],
+        "headline-xl": ['"Geist Pixel"', "sans-serif"],
+        "body-sm": ['"Geist Pixel"', "sans-serif"],
+        "body-md": ['"Geist Pixel"', "sans-serif"],
+        sans: ['"Geist Pixel"', "sans-serif"],
+        mono: ['"Silkscreen"', "sans-serif"],
       },
       fontSize: {
         "label-md": [

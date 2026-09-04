@@ -26,18 +26,19 @@
     />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&amp;family=Geist+Pixel&amp;family=Material+Symbols+Outlined:FILL,wght@0..1,100..700&amp;family=Silkscreen:wght@400;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
+
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Tailwind -->
     <script src="scripts/tailwind-config.js"></script>
   </head>
   <body
@@ -656,11 +657,20 @@
           </p>
           <form id="contact-form" class="flex flex-col gap-6">
             <!-- Required: Web3Forms Access Key -->
-            <input type="hidden" name="access_key" value="72d157fe-4b77-4a4b-ac64-b3ef01e075ea" />
-          
+            <input
+              type="hidden"
+              name="access_key"
+              value="72d157fe-4b77-4a4b-ac64-b3ef01e075ea"
+            />
+
             <!-- Optional: Honeypot Spam Protection -->
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
-          
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none"
+            />
+
             <div class="flex flex-col gap-2">
               <label
                 for="name"
@@ -677,7 +687,7 @@
                 placeholder="Your name"
               />
             </div>
-          
+
             <div class="flex flex-col gap-2">
               <label
                 for="email"
@@ -694,7 +704,7 @@
                 placeholder="Your email"
               />
             </div>
-          
+
             <div class="flex flex-col gap-2">
               <label
                 for="message"
@@ -711,14 +721,14 @@
                 placeholder="Your message"
               ></textarea>
             </div>
-          
+
             <button
               type="submit"
               class="bg-primary text-on-primary px-4 py-2 text-label-md font-label-md hover:translate-y-[2px] hover:translate-x-[2px] transition-transform shadow-[2px_2px_0px_#8ca693]"
             >
               Send Message
             </button>
-          
+
             <!-- Status message indicator -->
             <p id="form-result" class="text-label-md hidden"></p>
           </form>
