@@ -1,0 +1,356 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      name="description"
+      content="Project case study: replace with one-line project pitch."
+    />
+    <title>Project Case Study - Maker.Dev</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Pixel&amp;family=Material+Symbols+Outlined:FILL,wght@0..1,100..700&amp;family=Silkscreen:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../scripts/tailwind-config.js"></script>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-brand-sage selection:text-brand-bg"
+    data-partials-path="../../partials"
+  >
+    <div class="hidden md:block" id="cursor"></div>
+    <div id="header-placeholder"></div>
+
+    <main
+      class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pb-24"
+    >
+      <!-- Replace bracketed text. Keep case-study copy between 350 and 600 words. -->
+      <header class="border-b border-brand-slate/20 py-16 md:py-24">
+        <div class="max-w-4xl space-y-8">
+          <p
+            class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+          >
+            Case study / project type
+          </p>
+          <h1
+            class="font-headline-xl text-5xl md:text-6xl font-bold leading-tight text-brand-sage"
+          >
+            Project name
+          </h1>
+          <p class="max-w-3xl text-xl leading-relaxed text-on-background">
+            One sentence: what this project is, who it helps, and the outcome it
+            exists to create.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a
+              class="font-mono text-sm uppercase bg-brand-sage text-brand-bg px-6 py-3 font-bold hover:bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-slate"
+              href="https://example.com"
+            >
+              Live demo <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="font-mono text-sm uppercase border border-brand-slate px-6 py-3 hover:bg-brand-slate hover:text-brand-bg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-sage"
+              href="https://github.com/example/project"
+            >
+              Repository <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="problem-heading"
+      >
+        <div class="lg:col-span-3">
+          <p
+            class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+          >
+            01
+          </p>
+          <h2
+            id="problem-heading"
+            class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+          >
+            The problem
+          </h2>
+        </div>
+        <div
+          class="lg:col-span-9 max-w-3xl space-y-5 text-lg leading-relaxed text-on-surface-variant"
+        >
+          <p>
+            Who needed this, and what workflow or pain point made the project
+            worth solving?
+          </p>
+          <p>
+            Describe the constraint: time, privacy, budget, data, scale, or an
+            existing tool that failed. Avoid framing this as a learning
+            exercise.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="decisions-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+            >
+              02
+            </p>
+            <h2
+              id="decisions-heading"
+              class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+            >
+              Architecture &amp; key decisions
+            </h2>
+          </div>
+          <div class="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <article class="border border-brand-slate bg-brand-card/50 p-6">
+              <span class="font-mono text-xs text-brand-slate"
+                >Decision 01</span
+              >
+              <h3 class="font-mono text-lg font-bold text-brand-sage mt-5">
+                Choice over alternative
+              </h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant mt-4">
+                Why this approach fit the constraint. Name the trade-off you
+                accepted.
+              </p>
+            </article>
+            <article class="border border-brand-slate bg-brand-card/50 p-6">
+              <span class="font-mono text-xs text-brand-slate"
+                >Decision 02</span
+              >
+              <h3 class="font-mono text-lg font-bold text-brand-sage mt-5">
+                Choice over alternative
+              </h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant mt-4">
+                Explain the decision in terms of user impact, delivery speed,
+                cost, or reliability.
+              </p>
+            </article>
+            <article class="border border-brand-slate bg-brand-card/50 p-6">
+              <span class="font-mono text-xs text-brand-slate"
+                >Decision 03</span
+              >
+              <h3 class="font-mono text-lg font-bold text-brand-sage mt-5">
+                What I would change
+              </h3>
+              <p class="text-sm leading-relaxed text-on-surface-variant mt-4">
+                Name one decision you would revisit now and the lesson behind
+                it.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="hardest-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+            >
+              03
+            </p>
+            <h2
+              id="hardest-heading"
+              class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+            >
+              Hardest technical problem
+            </h2>
+          </div>
+          <div
+            class="lg:col-span-9 max-w-3xl space-y-5 text-lg leading-relaxed text-on-surface-variant"
+          >
+            <p>
+              Name the bug, bottleneck, or edge case. Explain how you reproduced
+              or diagnosed it, then describe the fix.
+            </p>
+            <p>
+              Include an observable change: memory, latency, throughput, error
+              rate, test coverage, or time saved.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 bg-brand-card/10 py-16 md:py-20"
+        aria-labelledby="outcome-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-4">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+            >
+              04
+            </p>
+            <h2
+              id="outcome-heading"
+              class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+            >
+              Outcome
+            </h2>
+            <p class="text-on-surface-variant mt-6 max-w-sm">
+              Use a number, benchmark, or honest limitation. Claims should be
+              verifiable.
+            </p>
+          </div>
+          <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="border border-brand-slate p-6">
+              <p class="font-mono text-xs uppercase text-brand-slate">Metric</p>
+              <p class="font-sans text-5xl font-bold text-brand-sage mt-8">
+                [00%]
+              </p>
+              <p class="text-sm text-on-surface-variant mt-3">
+                What changed, measured how?
+              </p>
+            </div>
+            <div class="border border-brand-slate p-6">
+              <p class="font-mono text-xs uppercase text-brand-slate">
+                Limitation
+              </p>
+              <p class="font-sans text-5xl font-bold text-brand-sage mt-8">
+                [fact]
+              </p>
+              <p class="text-sm text-on-surface-variant mt-3">
+                Where does this still break?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="different-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+            >
+              05
+            </p>
+            <h2
+              id="different-heading"
+              class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+            >
+              What I’d do differently
+            </h2>
+          </div>
+          <ul
+            class="lg:col-span-9 max-w-3xl space-y-4 text-lg leading-relaxed text-on-surface-variant list-none"
+          >
+            <li class="border-l-2 border-brand-sage pl-5">
+              Concrete change, tied to a lesson learned.
+            </li>
+            <li class="border-l-2 border-brand-sage pl-5">
+              Concrete change, tied to a new constraint or scale requirement.
+            </li>
+            <li class="border-l-2 border-brand-sage pl-5">
+              Concrete change, tied to a testing, observability, or
+              accessibility gap.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="proof-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+            >
+              06
+            </p>
+            <h2
+              id="proof-heading"
+              class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+            >
+              Proof &amp; links
+            </h2>
+          </div>
+          <div class="lg:col-span-9 space-y-8">
+            <img
+              class="w-full border border-brand-slate shadow-offset"
+              src="../../assets/images/project/indigenous-library/hero.png"
+              alt="Project interface overview"
+            />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a
+                class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors"
+                href="https://example.com"
+                >Live demo <span aria-hidden="true">↗</span></a
+              >
+              <a
+                class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors"
+                href="https://github.com/example/project"
+                >Repository <span aria-hidden="true">↗</span></a
+              >
+              <a
+                class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors"
+                href="https://example.com/architecture"
+                >Architecture diagram <span aria-hidden="true">↗</span></a
+              >
+              <a
+                class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors"
+                href="https://example.com/walkthrough"
+                >Walkthrough / API docs <span aria-hidden="true">↗</span></a
+              >
+            </div>
+            <p
+              class="max-w-3xl text-sm leading-relaxed text-on-surface-variant"
+            >
+              Diagram narrative: explain the request path, data store,
+              background work, or deployment shape in one or two sentences.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20" aria-labelledby="ai-heading">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+            >
+              07
+            </p>
+            <h2
+              id="ai-heading"
+              class="font-headline-lg text-3xl md:text-4xl font-bold text-brand-sage mt-3"
+            >
+              AI usage
+            </h2>
+          </div>
+          <p
+            class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+          >
+            I used [tool] for [boilerplate, research, or documentation]. I wrote
+            and reviewed the [business logic, architecture decisions,
+            integrations, and tests] manually.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../scripts/script.js"></script>
+  </body>
+</html>
