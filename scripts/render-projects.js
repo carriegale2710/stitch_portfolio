@@ -85,10 +85,15 @@ function createProjectCard(project) {
     </div>
   `;
 
-  article.innerHTML = `
+  if (project.pageUrl) {
+    imageHtml = `
     <a href="${escapeHtml(project.pageUrl)}" class="block">
     ${imageHtml}
-    </a>
+    </a>`;
+  }
+
+  article.innerHTML = `
+    ${imageHtml}
     <div class="flex flex-col flex-grow">
       <h3 class="font-headline-lg text-on-surface mb-2 text-label-md uppercase tracking-wider">
         ${escapeHtml(project.title)}

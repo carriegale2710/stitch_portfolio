@@ -6,7 +6,7 @@
     "tags": ["Flask", "Python", "MySQL", "AWS"],
     "icon": "assets/project/libraryIcon",
     "image": "assets/images/project/indigenous-library/hero.png",
-    "pageUrl": "pages/project/indigenous-library.html",
+    "pageUrl": "",
     "demoUrl": "https://indigenouslibrary.site/",
     "githubUrl": "https://github.com/carriegale2710/indigenous-library"
   },
@@ -17,7 +17,7 @@
     "tags": ["React", "Typescript", "Java", "Spring Boot", "MySQL"],
     "icon": "assets/project/triviaIcon",
     "image": "assets/images/project/trivia/hero.png",
-    "pageUrl": "pages/project/trivia-game.html",
+    "pageUrl": "",
     "demoUrl": "https://mytriviagame.lol",
     "githubUrl": "https://github.com/CodeByFred/trivia"
   },
@@ -28,7 +28,7 @@
     "tags": ["React", "Typescript", "SASS", "Java", "Spring Boot", "MySQL"],
     "icon": "assets/project/employeeCreatorIcon.svg",
     "image": "assets/images/project/employee-creator/hero.png",
-    "pageUrl": "pages/project/employee-creator.html",
+    "pageUrl": "",
     "demoUrl": "https://employeecreator.site/",
     "githubUrl": "https://github.com/carriegale2710/employee-creator"
   }
