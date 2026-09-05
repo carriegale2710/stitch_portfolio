@@ -10,18 +10,6 @@
     ]
   },
   {
-    "title": "Technical Co-founder",
-    "company": "aBeauté",
-    "location": "Sydney, NSW",
-    "period": "Dec 2024 - Present",
-    "description": [
-      "Led product development from concept to MVP for an accessibility-focused e-commerce platform.",
-      "Bridged the team's core technical gap through sprint workshops and hands-on product execution.",
-      "Directed UX/UI discovery, built early MVP prototypes in Figma, and refined solutions from usability testing and survey feedback.",
-      "Helped the team reach Top 6 finalist status in a VC pitch competition."
-    ]
-  },
-  {
     "title": "Software Engineer Intern",
     "company": "_nology",
     "location": "Remote",
@@ -32,14 +20,14 @@
     ]
   },
   {
-    "title": "Student Fellow",
+    "title": "Student Fellowship (Startup Intensive)",
     "company": "Startmate (ANZ)",
     "location": "Sydney, NSW",
-    "period": "Dec 2024 - Dec 2024",
+    "period": "Dec 2024 - Jan 2024",
     "description": [
-      "Selected for a competitive 2-week hackathon-style entrepreneurship fellowship.",
-      "Reached Top 6 finalist in the Founder Challenge by co-pitching product ideas to 5+ VC investors.",
-      "Refined product features using stakeholder feedback and lean startup methods."
+      "Top 6 finalist in the Founder Challenge by co-pitching product ideas to 5+ VC investors from ANZ and Blackbird.",
+      "Led product development from concept to MVP for an accessibility-focused e-commerce platform.",
+      "Built early MVP prototypes in Figma, and refined solutions from mentor and survey feedback."
     ]
   },
   {
@@ -51,16 +39,6 @@
       "Consulted for e-commerce clients, delivering UX/UI audits and website redesigns.",
       "Identified and resolved usability issues using Hotjar, improving accessibility scores by 25%.",
       "Streamlined checkout flow design by analyzing drop-off points, improving conversion rates by 15-30%."
-    ]
-  },
-  {
-    "title": "Founder & President",
-    "company": "MIXSOC - University of Sydney Society",
-    "location": "Sydney, NSW",
-    "period": "Jun 2021 - Jun 2022",
-    "description": [
-      "Led a team of 17-20 executives and organized 20+ major events annually.",
-      "Attracted 300+ attendees through digital marketing campaigns and strategic partnerships."
     ]
   }
 ]
