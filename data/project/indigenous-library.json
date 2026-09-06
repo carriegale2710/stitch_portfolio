@@ -123,6 +123,6 @@
 
   "aiDisclosure": {
     "disclosed": false,
-    "note": "Not documented in the repository as written — the README and commit history don't state which AI tools, if any, were used. Fill this in with a specific line (e.g. \"Used [tool] for X; wrote [Y] manually\") only if it's accurate to what actually happened during the build."
+    "note": "AI usage was only used for documentation, minor refactoring and formatting, and did not contribute to the design or implementation of the system."
   }
 }
