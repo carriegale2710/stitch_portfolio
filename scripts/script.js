@@ -27,6 +27,38 @@ async function loadSharedLayout() {
   const header = document.querySelector(".site-header");
   let lastScrollY = window.scrollY;
 
+  const menuToggle = document.querySelector(".mobile-menu-toggle");
+  const mobileNavigation = document.querySelector("#mobile-navigation");
+  const mobileNavClose = document.querySelector("[data-mobile-nav-close]");
+
+  const setMobileNavigationOpen = (isOpen) => {
+    if (!menuToggle || !mobileNavigation) return;
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation",
+    );
+    mobileNavigation.setAttribute("aria-hidden", String(!isOpen));
+    document
+      .querySelector(".site-header")
+      ?.classList.toggle("mobile-nav-open", isOpen);
+  };
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    setMobileNavigationOpen(!isOpen);
+  });
+  mobileNavClose?.addEventListener("click", () =>
+    setMobileNavigationOpen(false),
+  );
+  mobileNavigation?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMobileNavigationOpen(false));
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMobileNavigationOpen(false);
+  });
+
   if (header) {
     window.addEventListener(
       "scroll",

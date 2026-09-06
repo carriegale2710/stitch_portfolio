@@ -18,11 +18,11 @@
           href="/index.html#projects"
           >Projects</a
         >
-        <!-- <a
+        <a
           class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200"
           href="/index.html#about"
           >About</a
-        > -->
+        >
         <a
           class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-md font-label-md hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-all duration-200"
           href="/index.html#contact"
@@ -30,6 +30,17 @@
         >
       </div>
       <div class="flex items-center gap-4">
+        <button
+          class="mobile-menu-toggle md:hidden"
+          type="button"
+          aria-controls="mobile-navigation"
+          aria-expanded="false"
+          aria-label="Open navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <a
           href="/assets/resume.pdf"
           download="Carrie Gale - Junior Software Engineer.pdf"
@@ -43,4 +54,17 @@
       </div>
     </div>
   </nav>
+  <div class="mobile-nav-backdrop" data-mobile-nav-close></div>
+  <aside id="mobile-navigation" class="mobile-side-nav" aria-hidden="true">
+    <nav class="mobile-side-nav__links" aria-label="Mobile navigation">
+      <a href="/index.html#projects">Projects</a>
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#contact">Contact</a>
+      <a
+        href="/assets/resume.pdf"
+        download="Carrie Gale - Junior Software Engineer.pdf"
+        >Resume</a
+      >
+    </nav>
+  </aside>
 </header>

@@ -6,6 +6,10 @@
     "opsz" 24;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #101417;
   color: #a2a8a1;
@@ -26,6 +30,110 @@ body {
 
 .site-header.header--hidden {
   transform: translateY(-100%);
+}
+
+.mobile-menu-toggle,
+.mobile-side-nav,
+.mobile-nav-backdrop {
+  display: none;
+}
+
+.mobile-menu-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border: 1px solid #aacbdf;
+  background: transparent;
+  color: #aacbdf;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  background: currentColor;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.mobile-nav-open .mobile-menu-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-nav-open .mobile-menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-nav-open .mobile-menu-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-side-nav__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-side-nav__links a {
+  padding: 1rem;
+  color: #a2a8a1;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  text-decoration: none;
+  border-bottom: 1px solid #424843;
+}
+
+.mobile-side-nav__links a:hover,
+.mobile-side-nav__links a:focus-visible {
+  color: #b2cdb9;
+  background: #1c2420;
+}
+
+@media (max-width: 767px) {
+  .profile-img {
+    max-width: 250px;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .mobile-side-nav {
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    z-index: 51;
+    display: block;
+    width: min(18rem, 82vw);
+    padding: 1rem;
+    border-left: 1px solid #aacbdf;
+    border-bottom: 1px solid #aacbdf;
+    background: #181c1f;
+    transform: translateX(100%);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .mobile-nav-open .mobile-side-nav {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-backdrop {
+    position: fixed;
+    inset: 4rem 0 0;
+    z-index: 50;
+    display: block;
+    background: rgb(16 20 23 / 55%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .mobile-nav-open .mobile-nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
