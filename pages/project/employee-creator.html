@@ -22,6 +22,8 @@
   <body
     class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-brand-sage selection:text-brand-bg"
     data-partials-path="../../partials"
+    data-project-data="../../data/project/employee-creator.json"
+    data-project-image="../../assets/images/project/employee-creator/hero.png"
   >
     <div class="hidden md:block" id="cursor"></div>
     <div id="header-placeholder"></div>
@@ -205,108 +207,12 @@
           ></p>
         </div>
       </section>
+      <section id="more-projects-placeholder"></section>
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="../../scripts/script.js"></script>
-    <script>
-      const escapeHtml = (value) =>
-        String(value ?? "")
-          .replaceAll("&", "&amp;")
-          .replaceAll("<", "&lt;")
-          .replaceAll(">", "&gt;")
-          .replaceAll('"', "&quot;")
-          .replaceAll("'", "&#039;");
-
-      const setText = (id, value) => {
-        document.getElementById(id).textContent = value;
-      };
-
-      async function loadProject() {
-        const response = await fetch(
-          "../../data/project/employee-creator.json",
-        );
-        if (!response.ok)
-          throw new Error(`Project data failed: ${response.status}`);
-        const project = await response.json();
-
-        document.title = `${project.meta.title} - Maker.Dev`;
-        document.getElementById("page-description").content = project.pitch;
-        setText("project-title", project.meta.title);
-        setText("project-pitch", project.pitch);
-        setText(
-          "project-meta",
-          `${project.meta.myRole} / ${project.meta.teamSize} developer / ${project.meta.techStack.join(" / ")}`,
-        );
-        document.getElementById("demo-link").href = project.proofLinks.find(
-          (link) => link.label.startsWith("Live demo"),
-        ).url;
-        document.getElementById("repo-link").href = project.proofLinks.find(
-          (link) => link.label === "Repository",
-        ).url;
-
-        setText("problem", project.problem);
-        document.getElementById("problem").classList.add("leading-relaxed");
-
-        document.getElementById("decisions").innerHTML =
-          project.architectureDecisions
-            .map(
-              (item, index) => `
-          <article class="border border-brand-slate bg-brand-card/50 p-6">
-            <span class="font-mono text-xs text-brand-slate">Decision ${String(index + 1).padStart(2, "0")}</span>
-            <h3 class="font-mono text-lg font-bold text-brand-sage mt-5">${escapeHtml(item.decision)}</h3>
-            <p class="text-sm leading-relaxed text-on-surface-variant mt-4"><strong>Why:</strong> ${escapeHtml(item.why)}</p>
-            <p class="text-sm leading-relaxed text-on-surface-variant mt-4"><strong>Trade-off:</strong> ${escapeHtml(item.tradeoff)}</p>
-          </article>`,
-            )
-            .join("");
-
-        document.getElementById("hardest").innerHTML = [
-          project.hardestProblem.issue,
-          project.hardestProblem.diagnosis,
-          project.hardestProblem.fix,
-          project.hardestProblem.result,
-        ]
-          .map((text) => `<p>${escapeHtml(text)}</p>`)
-          .join("");
-        document.getElementById("hardest").classList.add("space-y-5");
-        document.getElementById("metrics").innerHTML = project.outcome.metrics
-          .map(
-            (metric) => `
-          <article class="border border-brand-slate p-6"><p class="font-mono text-xs uppercase text-brand-slate">${escapeHtml(metric.label)}</p><p class="text-lg leading-relaxed text-on-surface-variant mt-8">${escapeHtml(metric.value)}</p></article>`,
-          )
-          .join("");
-        setText(
-          "limitations",
-          `Known limitations: ${project.outcome.limitations}`,
-        );
-        document.getElementById("different").innerHTML =
-          project.whatIdDoDifferently
-            .map(
-              (item) =>
-                `<li class="border-l-2 border-brand-sage pl-5">${escapeHtml(item)}</li>`,
-            )
-            .join("");
-        document.getElementById("proof-links").innerHTML = project.proofLinks
-          .map(
-            (link) =>
-              `<a class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors" href="${escapeHtml(link.url)}" target="_blank" rel="noopener">${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
-          )
-          .join("");
-        setText(
-          "ai-disclosure",
-          project.aiDisclosure.disclosed
-            ? project.aiDisclosure.note
-            : "AI usage has not been documented for this project. This disclosure should be updated only with an accurate account of tools and manually authored work.",
-        );
-      }
-
-      document.addEventListener("DOMContentLoaded", () =>
-        loadProject().catch((error) => {
-          console.error(error);
-          setText("project-title", "Project data unavailable");
-        }),
-      );
-    </script>
+    <script src="../../scripts/render-project-detail.js"></script>
+    <script src="../../scripts/more-projects.js"></script>
   </body>
 </html>
