@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "title": "Gating Cultural Access: Auth, Review Workflow & Deployment for an Indigenous Collection Library",
+    "slug": "indigenous-library",
+    "isTeamProject": true,
+    "teamSize": 5,
+    "myRole": "Controller layer, authentication, role-based access control, and live deployment",
+    "techStack": [
+      "Flask (app-factory pattern)",
+      "MySQL",
+      "Session-based authentication",
+      "WTForms",
+      "Bootstrap 5",
+      "Nginx",
+      "Gunicorn",
+      "systemd",
+      "Certbot / Let's Encrypt",
+      "GitHub Actions"
+    ],
+    "team": [
+      { "name": "Daniel Green", "area": "Model layer" },
+      { "name": "Brad Jackson", "area": "Model layer" },
+      { "name": "Lona Ulsame", "area": "View layer" },
+      {
+        "name": "Carrie Gale",
+        "area": "View layer, Controller layer, Demo deployment"
+      },
+      { "name": "Rebecca Llewelyn", "area": "Controller layer" }
+    ]
+  },
+
+  "pitch": "A Flask app that keeps culturally sensitive Indigenous artefacts hidden from public view until a community elder or reviewer signs off, so an academic library can safely publish its collection online.",
+
+  "problem": "An academic library wanted to digitize a physical Indigenous collection — books, artefacts, images, audio — and publish it online. The catalogue couldn't just be public-or-private like a typical library system: many items carry cultural sensitivity that requires a community elder or reviewer's judgment before release, in line with CARE principles for Indigenous data governance. Generic library software treats access as a login check; this client needed a workflow where an item's visibility depends on a human decision, with that decision recorded and attributable. As the controller/auth developer on a 5-person team, I owned the piece that had to enforce this correctly across four other people's code.",
+
+  "architectureDecisions": [
+    {
+      "decision": "Wrote custom route decorators for role-based access control instead of using Flask-Admin.",
+      "why": "Flask-Admin's built-in permissions model didn't map cleanly onto four roles (Admin, Community Reviewer, Library Staff, Public User) with overlapping but distinct CRUD and review rights.",
+      "tradeoff": "No automatic admin UI, and every permission boundary had to be verified manually rather than generated for free."
+    },
+    {
+      "decision": "Modeled access status as a state machine (Pending → Open/Restricted/Culturally Sensitive) instead of a boolean flag.",
+      "why": "The ethical requirement is a review process, not a simple login gate.",
+      "tradeoff": "More transition logic and audit-trail bookkeeping to keep consistent across four contributors' code."
+    },
+    {
+      "decision": "Used the Flask blueprint pattern to merge four people's routes into one app-factory structure.",
+      "why": "Each teammate's view-layer work needed to stay isolated during development but assemble into a single app at integration time, rather than one disruptive big-bang merge.",
+      "tradeoff": "Most of the integration cost landed on me, late, as the controller developer."
+    },
+    {
+      "decision": "Migrated the live demo from Render/Aiven to self-managed AWS (EC2 + Nginx + Gunicorn + systemd + Certbot).",
+      "why": "The free-tier PaaS idled the instance during inactivity, which is fine for development but not for a link recruiters might click cold.",
+      "tradeoff": "Took on infra ops — systemd service management and TLS renewal — that a PaaS would otherwise handle."
+    }
+  ],
+
+  "hardestProblem": {
+    "issue": "Two weeks before the deadline, I had to reconcile four teammates' model and view code into one working controller layer. The OOP model classes and the Jinja templates used inconsistent column and variable names for the same data, and the view layer was still rendering hardcoded dummy content instead of real records.",
+    "diagnosis": "Traced each route's data flow from model to template to find every naming mismatch.",
+    "fix": "Renamed and aligned the inconsistent fields, converted every teammate's routes into the Flask blueprint pattern, and replaced the dummy fixtures with live MySQL queries.",
+    "result": "Turned four semi-compatible fragments into one integrated, testable application."
+  },
+
+  "outcome": {
+    "metrics": [
+      { "label": "Commits", "value": "232 commits across the team" },
+      {
+        "label": "Lighthouse performance score",
+        "value": "93, after converting item images from SVG to WebP"
+      },
+      {
+        "label": "Largest Contentful Paint",
+        "value": "Improved from ~1.5–2s to 0.83s"
+      },
+      {
+        "label": "Deployment",
+        "value": "Live on AWS with HTTPS via Let's Encrypt; shared demo database resets hourly via a scheduled GitHub Action"
+      }
+    ],
+    "limitations": "5 of the model test suite's scripts (including test_reset_demo, test_model_final, and two read-only query tests) still fail or don't print PASS — documented openly in the team's own test README rather than hidden."
+  },
+
+  "whatIdDoDifferently": [
+    "Push for shared model/database naming conventions across the whole team in week one, not week seven — the mismatched column and variable names are exactly what turned integration into a late scramble.",
+    "Build an automated permission-boundary test suite for the four roles instead of relying on manual in-browser checks against every restricted route, which doesn't scale and is easy to under-cover.",
+    "Fix the 5 still-failing model tests and add a direct link from the Item Details page to Item Assessment — both already flagged as known gaps in the project's own roadmap."
+  ],
+
+  "proofLinks": [
+    {
+      "label": "Live demo",
+      "url": "https://indigenouslibrary.site/",
+      "note": "Use \"Try Demo as Admin\" on the login page (no password needed); data resets hourly."
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/carriegale2710/indigenous-library",
+      "note": null
+    },
+    {
+      "label": "Request-access flow diagram",
+      "url": "https://github.com/carriegale2710/indigenous-library/blob/main/docs/user-flows/flow_3_request_access.svg",
+      "note": null
+    },
+    {
+      "label": "Deployment write-up",
+      "url": "https://github.com/carriegale2710/indigenous-library/blob/main/docs/deploy.md",
+      "note": null
+    },
+    {
+      "label": "Test suite & known failures",
+      "url": "https://github.com/carriegale2710/indigenous-library/blob/main/tests/README.md",
+      "note": null
+    },
+    {
+      "label": "Full project spec (PRD)",
+      "url": "https://github.com/carriegale2710/indigenous-library/blob/main/docs/prd.md",
+      "note": null
+    }
+  ],
+
+  "aiDisclosure": {
+    "disclosed": false,
+    "note": "Not documented in the repository as written — the README and commit history don't state which AI tools, if any, were used. Fill this in with a specific line (e.g. \"Used [tool] for X; wrote [Y] manually\") only if it's accurate to what actually happened during the build."
+  }
+}

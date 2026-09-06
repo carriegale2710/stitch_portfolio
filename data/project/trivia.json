@@ -1,0 +1,127 @@
+v+{
+  "meta": {
+    "title": "Building the Player-Facing Half of a Two-Person Trivia App: Retry Mode, Scoring, and a Shipped Design System",
+    "slug": "trivia",
+    "isTeamProject": true,
+    "teamSize": 2,
+    "myRole": "Frontend developer — game UI/flow, answer scoring, retry mode, points system, and the visual design system. Reviewed and gave feedback on the backend API, but didn't write it myself.",
+    "techStack": [
+      "React + TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Open Trivia DB (OpenTDB) API",
+      "Java 21 + Spring Boot (peer-built backend)",
+      "MySQL (original backend design)",
+      "PostgreSQL (demo deployment only, post-migration)",
+      "Figma (design system + prototyping)",
+      "Trello (sprint board)"
+    ],
+    "team": [
+      { "name": "Fred (CodeByFred)", "area": "Backend — Spring Boot API, database, session tokens, retry/timer logic; some early frontend UI" },
+      { "name": "Carrie Gale", "area": "Frontend — game flow, answer scoring, retry mode, points system, design system" }
+    ]
+  },
+
+  "pitch": "A two-person trivia game where players can retry only their genuinely unresolved wrong answers, scored by question difficulty.",
+
+  "problem": "Generic trivia apps score a single playthrough and move on — they don't help a player revisit the specific questions they got wrong. This was a 2-person coursework project (frontend: me; backend: my peer) built to add a real retry loop on top of the standard Open Trivia DB question flow: track which answers were wrong, resurface only the still-unresolved ones, and reward harder questions with more points. My side of the work was the entire player-facing experience — the parts a tester actually clicks through — built against an API contract I reviewed in code but didn't write myself.",
+
+  "architectureDecisions": [
+    {
+      "decision": "Weighted the points system by question difficulty (easy = 10, medium = 20, hard = 30) instead of a flat per-question score.",
+      "why": "A flat score wouldn't reward attempting harder questions, and difficulty was already a first-class filter on the backend's retry endpoint, so reusing that same field for scoring kept one source of truth for difficulty logic.",
+      "tradeoff": "Score totals are no longer just a raw question count, so any future leaderboard or stats feature has to account for difficulty weighting instead of a simple tally."
+    },
+    {
+      "decision": "Built a dedicated Retry Page fed by the backend's filtered game-answers query, instead of reusing the main GamePage component for retries.",
+      "why": "Retry mode needed different behavior — pulling specific past-incorrect answers by archived/wasCorrect status and later marking them archived — which didn't map cleanly onto the main game flow's state.",
+      "tradeoff": "Some duplication exists between GamePage and RetryPage instead of one unified component, since the retry experience was built frontend-first against a backend contract I didn't own."
+    },
+    {
+      "decision": "Encapsulated game state, scoring, and save logic in a single GameContext rather than prop-drilling through GamePage's child components.",
+      "why": "Answer scoring, session tokens, and game-over/review data all needed to be readable from multiple UI components (GameOverModal, GameLog, ReviewPage) without threading props through every layer.",
+      "tradeoff": "Most game logic now lives in one context provider, which is convenient for reads but makes isolated testing of individual pieces harder — and the frontend currently has no test scripts defined at all."
+    },
+    {
+      "decision": "Time-boxed the right/wrong feedback icon to a fixed 1.5-second window tied to answer submission, instead of navigating to the next question immediately.",
+      "why": "Instant navigation on submit gave no visual confirmation of whether an answer was correct, which feedback on the Figma prototype flagged as confusing during user testing.",
+      "tradeoff": "Every answer submission now has a fixed 1.5s delay before advancing, which slows down play for users who don't need the confirmation, and the planned audio feedback (ding/buzzer) was deferred rather than shipped alongside it."
+    },
+    {
+      "decision": "Migrated the live demo deployment from AWS to Render, with the demo database moved from MySQL to Render's free-tier Postgres — the same move made on the employee-creator project.",
+      "why": "The AWS free tier backing the original demo deployment expired, and Render's ongoing free tier covers a small two-person coursework demo without maintaining EC2 infrastructure directly.",
+      "tradeoff": "The live demo now runs on Postgres instead of the MySQL the backend was actually built and tested against (see the repo's `trivia_db_queries.sql` and `application.properties`, both written for MySQL) — as with employee-creator, the live link reflects a cost-driven demo swap, not the documented backend design."
+    }
+  ],
+
+  "hardestProblem": {
+    "issue": "Retry mode depended entirely on a backend query contract I didn't write myself — `GET /game-answers` requires exact `archived`, `wasCorrect`, and `quantity` parameters plus an optional `difficulty`, and `PATCH /game-answers/{id}` is what actually marks a retried answer as resolved.",
+    "diagnosis": "Working mostly from code review rather than the implementation itself, I had to confirm the exact parameter names, types, and required-vs-optional status against my peer's backend before wiring the Retry Page's fetch calls, instead of assuming a shape from the frontend side.",
+    "fix": "Matched the Retry Page's queries to the confirmed contract exactly (all three required params, `difficulty` treated as optional), and wired the PATCH call to fire only once a retried question was answered correctly, not just attempted.",
+    "result": "Retry mode reliably pulls only genuinely unresolved incorrect answers and stops re-serving ones the player has already corrected."
+  },
+
+  "outcome": {
+    "metrics": [
+      { "label": "Commits", "value": "128 commits across a 2-person team" },
+      { "label": "Delivery cadence", "value": "5 weekly ticket cycles, each shipping a distinct player-facing feature — question display, scoring/context, then retry mode + points + a full design system in the final cycle" },
+      { "label": "Design", "value": "Interactive Figma prototype used for real user feedback on visuals and readability before the UI redesign shipped" }
+    ],
+    "limitations": "No frontend test scripts are defined yet — the frontend README states this directly — so the trickiest frontend state (scoring, retry archiving) has no automated coverage. The planned audio feedback for right/wrong answers was also never shipped, both logged openly rather than hidden."
+  },
+
+  "whatIdDoDifferently": [
+    "Nail down the exact backend query contract (archived, wasCorrect, quantity, difficulty) in a shared doc before wiring the Retry Page, instead of confirming parameter shapes through code review after the frontend code was already written.",
+    "Add frontend tests before shipping retry mode and the points system — the frontend still has no test scripts, so the trickiest state has no automated coverage.",
+    "Ship the planned sound feedback (ding/buzzer) alongside the visual tick/cross icon in the same release instead of deferring it, since half-shipped feedback is easy to forget about later.",
+    "Document the AWS-to-Render/Postgres demo migration in the README the same way the original MySQL design is documented — right now the live demo's actual stack isn't mentioned anywhere in the repo's own docs."
+  ],
+
+  "proofLinks": [
+    {
+      "label": "Live demo",
+      "url": "https://mytriviagame.lol",
+      "note": null
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/CodeByFred/trivia",
+      "note": null
+    },
+    {
+      "label": "Backend README & API overview",
+      "url": "https://github.com/CodeByFred/trivia/blob/main/README.md",
+      "note": null
+    },
+    {
+      "label": "Frontend README",
+      "url": "https://github.com/CodeByFred/trivia/blob/main/frontend/README.md",
+      "note": null
+    },
+    {
+      "label": "Data model / ERD",
+      "url": "https://github.com/CodeByFred/trivia/blob/main/assets/trivia-erd.png",
+      "note": null
+    },
+    {
+      "label": "Changelog (weekly ticket ownership)",
+      "url": "https://github.com/CodeByFred/trivia/blob/main/CHANGELOG.md",
+      "note": "Shows the week-by-week split between frontend (mine) and backend (peer) tickets."
+    },
+    {
+      "label": "Figma board & prototype",
+      "url": "https://www.figma.com/board/p0I0y8Sr4brnA6b1FiPCDy/trivia?node-id=0-1",
+      "note": "Design system source and the interactive prototype used for user feedback."
+    },
+    {
+      "label": "Team sprint board (Trello)",
+      "url": "https://trello.com/b/14XGoYKh/trivia-full-stack-project-fred-carrie",
+      "note": null
+    }
+  ],
+
+  "aiDisclosure": {
+    "disclosed": false,
+    "note": "Not documented in the repository as written — the README, frontend README, and changelog don't state which AI tools, if any, were used. Fill this in with a specific line (e.g. \"Used [tool] for X; wrote [Y] manually\") only if it's accurate to what actually happened during the build."
+  }
+}
