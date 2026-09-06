@@ -76,7 +76,7 @@ typography:
     fontWeight: "400"
     lineHeight: "1.5"
   label-md:
-    fontFamily: Silkscreen
+    fontFamily: IBM Plex Mono
     fontSize: 12px
     fontWeight: "500"
     lineHeight: "1"
@@ -114,9 +114,9 @@ Functional colors like errors should be rendered in a muted terracotta rather th
 
 ## Typography
 
-The system uses a dual-font strategy. **Geist Pixel** provides the pixel-inspired backbone for headings and readable interface copy. **Silkscreen** is reserved for technical labels, buttons, and code-like UI elements.
+The system uses a dual-font strategy. **Geist Pixel** provides the pixel-inspired backbone for headings and readable interface copy. **IBM Plex Mono** is reserved for technical labels, buttons, and code-like UI elements because it stays legible at small sizes.
 
-The font roles map directly to Tailwind: `font-headline-xl`, `font-headline-lg`, `font-headline-lg-mobile`, `font-body-md`, and `font-body-sm` use **Geist Pixel**; `font-label-md` and `font-mono` use **Silkscreen**. All headers should have a slight negative letter-spacing to feel more compact and deliberate.
+The font roles map directly to Tailwind: `font-headline-xl`, `font-headline-lg`, `font-headline-lg-mobile`, `font-body-md`, and `font-body-sm` use **Geist Pixel**; `font-label-md` and `font-mono` use **IBM Plex Mono**. All headers should have a slight negative letter-spacing to feel more compact and deliberate.
 
 ## Layout & Spacing
 
@@ -148,4 +148,4 @@ The shape language is **Soft (Level 1)**. While the aesthetic is lo-fi and pixel
 - **Cards:** Background matches the neutral charcoal but features a 1px Cream border. Header areas within cards should be separated by a 1px horizontal line.
 - **Inputs:** Darker background than the surface, with a Cream-colored monospaced cursor. No glows on focus—only a color change of the border to Sage Green.
 - **Lists:** Use custom pixel-art glyphs (like a small 8-bit square or a cat icon) as bullet points.
-- **Specialty Component - "Status Monitor":** A small UI block that mimics a terminal or status bar, showing "System Online" or "Currently Reading," rendered in Silkscreen.
+- **Specialty Component - "Status Monitor":** A small UI block that mimics a terminal or status bar, showing "System Online" or "Currently Reading," rendered in IBM Plex Mono.

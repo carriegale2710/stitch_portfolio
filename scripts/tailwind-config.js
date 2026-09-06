@@ -70,14 +70,14 @@ tailwind.config = {
         gutter: "24px",
       },
       fontFamily: {
-        "label-md": ['"Silkscreen"', "sans-serif"],
+        "label-md": ['"IBM Plex Mono"', "monospace"],
         "headline-lg-mobile": ['"Geist Pixel"', "sans-serif"],
         "headline-lg": ['"Geist Pixel"', "sans-serif"],
         "headline-xl": ['"Geist Pixel"', "sans-serif"],
         "body-sm": ['"Geist Pixel"', "sans-serif"],
         "body-md": ['"Geist Pixel"', "sans-serif"],
         sans: ['"Geist Pixel"', "sans-serif"],
-        mono: ['"Silkscreen"', "sans-serif"],
+        mono: ['"IBM Plex Mono"', "monospace"],
       },
       fontSize: {
         "label-md": [

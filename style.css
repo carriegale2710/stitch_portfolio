@@ -50,7 +50,7 @@ body {
 
 .section-number {
   color: #aacbdf;
-  font-family: "Silkscreen", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
