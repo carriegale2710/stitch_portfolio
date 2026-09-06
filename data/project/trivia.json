@@ -1,4 +1,4 @@
-v+{
+{
   "meta": {
     "title": "Building the Player-Facing Half of a Two-Person Trivia App: Retry Mode, Scoring, and a Shipped Design System",
     "slug": "trivia",
@@ -17,8 +17,14 @@ v+{
       "Trello (sprint board)"
     ],
     "team": [
-      { "name": "Fred (CodeByFred)", "area": "Backend — Spring Boot API, database, session tokens, retry/timer logic; some early frontend UI" },
-      { "name": "Carrie Gale", "area": "Frontend — game flow, answer scoring, retry mode, points system, design system" }
+      {
+        "name": "Fred (CodeByFred)",
+        "area": "Backend — Spring Boot API, database, session tokens, retry/timer logic; some early frontend UI"
+      },
+      {
+        "name": "Carrie Gale",
+        "area": "Frontend — game flow, answer scoring, retry mode, points system, design system"
+      }
     ]
   },
 
@@ -64,8 +70,14 @@ v+{
   "outcome": {
     "metrics": [
       { "label": "Commits", "value": "128 commits across a 2-person team" },
-      { "label": "Delivery cadence", "value": "5 weekly ticket cycles, each shipping a distinct player-facing feature — question display, scoring/context, then retry mode + points + a full design system in the final cycle" },
-      { "label": "Design", "value": "Interactive Figma prototype used for real user feedback on visuals and readability before the UI redesign shipped" }
+      {
+        "label": "Delivery cadence",
+        "value": "5 weekly ticket cycles, each shipping a distinct player-facing feature — question display, scoring/context, then retry mode + points + a full design system in the final cycle"
+      },
+      {
+        "label": "Design",
+        "value": "Interactive Figma prototype used for real user feedback on visuals and readability before the UI redesign shipped"
+      }
     ],
     "limitations": "No frontend test scripts are defined yet — the frontend README states this directly — so the trickiest frontend state (scoring, retry archiving) has no automated coverage. The planned audio feedback for right/wrong answers was also never shipped, both logged openly rather than hidden."
   },

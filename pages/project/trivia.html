@@ -1,0 +1,206 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      id="page-description"
+      name="description"
+      content="Trivia project case study."
+    />
+    <title>Trivia Project</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Pixel&amp;family=Material+Symbols+Outlined:FILL,wght@0..1,100..700&amp;family=Silkscreen:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../scripts/tailwind-config.js"></script>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-brand-sage selection:text-brand-bg"
+    data-partials-path="../../partials"
+    data-project-data="../../data/project/trivia.json"
+    data-project-image="../../assets/images/project/trivia/hero.png"
+  >
+    <div class="hidden md:block" id="cursor"></div>
+    <div id="header-placeholder"></div>
+    <main
+      class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pb-24"
+    >
+      <header class="border-b border-brand-slate/20 py-16 md:py-24">
+        <div class="max-w-4xl space-y-8">
+          <p
+            class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+          >
+            Case study / full-stack project
+          </p>
+          <h1
+            id="project-title"
+            class="font-headline-xl text-5xl md:text-6xl font-bold leading-tight text-brand-sage"
+          >
+            Loading project...
+          </h1>
+          <p
+            id="project-pitch"
+            class="max-w-3xl text-xl leading-relaxed text-on-background"
+          >
+            Loading project summary...
+          </p>
+          <p
+            id="project-meta"
+            class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+          ></p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a
+              id="demo-link"
+              class="font-mono text-sm uppercase bg-brand-sage text-brand-bg px-6 py-3 font-bold hover:bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-slate"
+              target="_blank"
+              rel="noopener"
+              >Live demo <span aria-hidden="true">↗</span></a
+            ><a
+              id="repo-link"
+              class="font-mono text-sm uppercase border border-brand-slate px-6 py-3 hover:bg-brand-slate hover:text-brand-bg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-sage"
+              target="_blank"
+              rel="noopener"
+              >Repository <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </header>
+      <section
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="problem-heading"
+      >
+        <div class="lg:col-span-3">
+          <p class="section-number">01</p>
+          <h2 id="problem-heading" class="section-heading">The problem</h2>
+        </div>
+        <div
+          id="problem"
+          class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+        >
+          Loading problem...
+        </div>
+      </section>
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="decisions-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">02</p>
+            <h2 id="decisions-heading" class="section-heading">
+              Architecture &amp; key decisions
+            </h2>
+          </div>
+          <div
+            id="decisions"
+            class="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-4"
+          ></div>
+        </div>
+      </section>
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="hardest-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">03</p>
+            <h2 id="hardest-heading" class="section-heading">
+              Hardest technical problem
+            </h2>
+          </div>
+          <div
+            id="hardest"
+            class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+          ></div>
+        </div>
+      </section>
+      <section
+        class="border-b border-brand-slate/20 bg-brand-card/10 py-16 md:py-20"
+        aria-labelledby="outcome-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-4">
+            <p class="section-number">04</p>
+            <h2 id="outcome-heading" class="section-heading">Outcome</h2>
+            <p class="text-on-surface-variant mt-6 max-w-sm">
+              Measured results and known limitations from the shipped project.
+            </p>
+          </div>
+          <div class="lg:col-span-8">
+            <div
+              id="metrics"
+              class="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            ></div>
+            <p
+              id="limitations"
+              class="border-l-2 border-brand-sage pl-5 mt-6 text-sm leading-relaxed text-on-surface-variant"
+            ></p>
+          </div>
+        </div>
+      </section>
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="different-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">05</p>
+            <h2 id="different-heading" class="section-heading">
+              What I’d do differently
+            </h2>
+          </div>
+          <ul
+            id="different"
+            class="lg:col-span-9 max-w-3xl space-y-4 text-lg leading-relaxed text-on-surface-variant list-none"
+          ></ul>
+        </div>
+      </section>
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="proof-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">06</p>
+            <h2 id="proof-heading" class="section-heading">
+              Proof &amp; links
+            </h2>
+          </div>
+          <div class="lg:col-span-9 space-y-8">
+            <img
+              id="project-image"
+              class="w-full border border-brand-slate shadow-offset"
+              alt="Project interface overview"
+            />
+            <div
+              id="proof-links"
+              class="grid grid-cols-1 md:grid-cols-2 gap-4"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <section class="py-16 md:py-20" aria-labelledby="ai-heading">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">07</p>
+            <h2 id="ai-heading" class="section-heading">AI usage</h2>
+          </div>
+          <p
+            id="ai-disclosure"
+            class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+          >
+            Loading disclosure...
+          </p>
+        </div>
+      </section>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script src="../../scripts/script.js"></script>
+    <script src="../../scripts/render-project-detail.js"></script>
+  </body>
+</html>

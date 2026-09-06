@@ -1,0 +1,312 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      id="page-description"
+      name="description"
+      content="Employee Creator project case study."
+    />
+    <title id="page-title">Employee Creator Project</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Pixel&amp;family=Material+Symbols+Outlined:FILL,wght@0..1,100..700&amp;family=Silkscreen:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../scripts/tailwind-config.js"></script>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-brand-sage selection:text-brand-bg"
+    data-partials-path="../../partials"
+  >
+    <div class="hidden md:block" id="cursor"></div>
+    <div id="header-placeholder"></div>
+
+    <main
+      class="flex-grow w-full max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pb-24"
+    >
+      <header class="border-b border-brand-slate/20 py-16 md:py-24">
+        <div class="max-w-4xl space-y-8">
+          <p
+            class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+          >
+            Case study / full-stack system
+          </p>
+          <h1
+            id="project-title"
+            class="font-headline-xl text-5xl md:text-6xl font-bold leading-tight text-brand-sage"
+          >
+            Loading project...
+          </h1>
+          <p
+            id="project-pitch"
+            class="max-w-3xl text-xl leading-relaxed text-on-background"
+          ></p>
+          <p
+            id="project-meta"
+            class="font-mono text-xs uppercase tracking-widest text-brand-slate"
+          ></p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a
+              id="demo-link"
+              class="font-mono text-sm uppercase bg-brand-sage text-brand-bg px-6 py-3 font-bold hover:bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-slate"
+              target="_blank"
+              rel="noopener"
+              >Live demo <span aria-hidden="true">↗</span></a
+            >
+            <a
+              id="repo-link"
+              class="font-mono text-sm uppercase border border-brand-slate px-6 py-3 hover:bg-brand-slate hover:text-brand-bg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-sage"
+              target="_blank"
+              rel="noopener"
+              >Repository <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </header>
+
+      <section
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="problem-heading"
+      >
+        <div class="lg:col-span-3">
+          <p class="section-number">01</p>
+          <h2 id="problem-heading" class="section-heading">The problem</h2>
+        </div>
+        <div
+          id="problem"
+          class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+        ></div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="decisions-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">02</p>
+            <h2 id="decisions-heading" class="section-heading">
+              Architecture &amp; key decisions
+            </h2>
+          </div>
+          <div
+            id="decisions"
+            class="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-4"
+          ></div>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="hardest-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">03</p>
+            <h2 id="hardest-heading" class="section-heading">
+              Hardest technical problem
+            </h2>
+          </div>
+          <div
+            id="hardest"
+            class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+          ></div>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 bg-brand-card/10 py-16 md:py-20"
+        aria-labelledby="outcome-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-4">
+            <p class="section-number">04</p>
+            <h2 id="outcome-heading" class="section-heading">Outcome</h2>
+            <p class="text-on-surface-variant mt-6 max-w-sm">
+              Measured results and known limitations from the shipped system.
+            </p>
+          </div>
+          <div class="lg:col-span-8">
+            <div
+              id="metrics"
+              class="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            ></div>
+            <p
+              id="limitations"
+              class="border-l-2 border-brand-sage pl-5 mt-6 text-sm leading-relaxed text-on-surface-variant"
+            ></p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="different-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">05</p>
+            <h2 id="different-heading" class="section-heading">
+              What I’d do differently
+            </h2>
+          </div>
+          <ul
+            id="different"
+            class="lg:col-span-9 max-w-3xl space-y-4 text-lg leading-relaxed text-on-surface-variant list-none"
+          ></ul>
+        </div>
+      </section>
+
+      <section
+        class="border-b border-brand-slate/20 py-16 md:py-20"
+        aria-labelledby="proof-heading"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">06</p>
+            <h2 id="proof-heading" class="section-heading">
+              Proof &amp; links
+            </h2>
+          </div>
+          <div class="lg:col-span-9 space-y-8">
+            <img
+              class="w-full border border-brand-slate shadow-offset"
+              src="../../assets/images/project/employee-creator/hero.png"
+              alt="Employee Creator interface overview"
+            />
+            <div
+              id="proof-links"
+              class="grid grid-cols-1 md:grid-cols-2 gap-4"
+            ></div>
+            <p
+              class="max-w-3xl text-sm leading-relaxed text-on-surface-variant"
+            >
+              The repository contains architecture, deployment, ER diagram,
+              CI/CD, and product-spec evidence for this case study.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-20" aria-labelledby="ai-heading">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-3">
+            <p class="section-number">07</p>
+            <h2 id="ai-heading" class="section-heading">AI usage</h2>
+          </div>
+          <p
+            id="ai-disclosure"
+            class="lg:col-span-9 max-w-3xl text-lg leading-relaxed text-on-surface-variant"
+          ></p>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="../../scripts/script.js"></script>
+    <script>
+      const escapeHtml = (value) =>
+        String(value ?? "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+
+      const setText = (id, value) => {
+        document.getElementById(id).textContent = value;
+      };
+
+      async function loadProject() {
+        const response = await fetch(
+          "../../data/project/employee-creator.json",
+        );
+        if (!response.ok)
+          throw new Error(`Project data failed: ${response.status}`);
+        const project = await response.json();
+
+        document.title = `${project.meta.title} - Maker.Dev`;
+        document.getElementById("page-description").content = project.pitch;
+        setText("project-title", project.meta.title);
+        setText("project-pitch", project.pitch);
+        setText(
+          "project-meta",
+          `${project.meta.myRole} / ${project.meta.teamSize} developer / ${project.meta.techStack.join(" / ")}`,
+        );
+        document.getElementById("demo-link").href = project.proofLinks.find(
+          (link) => link.label.startsWith("Live demo"),
+        ).url;
+        document.getElementById("repo-link").href = project.proofLinks.find(
+          (link) => link.label === "Repository",
+        ).url;
+
+        setText("problem", project.problem);
+        document.getElementById("problem").classList.add("leading-relaxed");
+
+        document.getElementById("decisions").innerHTML =
+          project.architectureDecisions
+            .map(
+              (item, index) => `
+          <article class="border border-brand-slate bg-brand-card/50 p-6">
+            <span class="font-mono text-xs text-brand-slate">Decision ${String(index + 1).padStart(2, "0")}</span>
+            <h3 class="font-mono text-lg font-bold text-brand-sage mt-5">${escapeHtml(item.decision)}</h3>
+            <p class="text-sm leading-relaxed text-on-surface-variant mt-4"><strong>Why:</strong> ${escapeHtml(item.why)}</p>
+            <p class="text-sm leading-relaxed text-on-surface-variant mt-4"><strong>Trade-off:</strong> ${escapeHtml(item.tradeoff)}</p>
+          </article>`,
+            )
+            .join("");
+
+        document.getElementById("hardest").innerHTML = [
+          project.hardestProblem.issue,
+          project.hardestProblem.diagnosis,
+          project.hardestProblem.fix,
+          project.hardestProblem.result,
+        ]
+          .map((text) => `<p>${escapeHtml(text)}</p>`)
+          .join("");
+        document.getElementById("hardest").classList.add("space-y-5");
+        document.getElementById("metrics").innerHTML = project.outcome.metrics
+          .map(
+            (metric) => `
+          <article class="border border-brand-slate p-6"><p class="font-mono text-xs uppercase text-brand-slate">${escapeHtml(metric.label)}</p><p class="text-lg leading-relaxed text-on-surface-variant mt-8">${escapeHtml(metric.value)}</p></article>`,
+          )
+          .join("");
+        setText(
+          "limitations",
+          `Known limitations: ${project.outcome.limitations}`,
+        );
+        document.getElementById("different").innerHTML =
+          project.whatIdDoDifferently
+            .map(
+              (item) =>
+                `<li class="border-l-2 border-brand-sage pl-5">${escapeHtml(item)}</li>`,
+            )
+            .join("");
+        document.getElementById("proof-links").innerHTML = project.proofLinks
+          .map(
+            (link) =>
+              `<a class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors" href="${escapeHtml(link.url)}" target="_blank" rel="noopener">${escapeHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
+          )
+          .join("");
+        setText(
+          "ai-disclosure",
+          project.aiDisclosure.disclosed
+            ? project.aiDisclosure.note
+            : "AI usage has not been documented for this project. This disclosure should be updated only with an accurate account of tools and manually authored work.",
+        );
+      }
+
+      document.addEventListener("DOMContentLoaded", () =>
+        loadProject().catch((error) => {
+          console.error(error);
+          setText("project-title", "Project data unavailable");
+        }),
+      );
+    </script>
+  </body>
+</html>

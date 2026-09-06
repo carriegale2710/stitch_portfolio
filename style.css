@@ -48,6 +48,23 @@ body {
   border: 1px solid #b2cdb9;
 }
 
+.section-number {
+  color: #aacbdf;
+  font-family: "Silkscreen", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  color: #b2cdb9;
+  font-family: "Geist Pixel", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 0.75rem;
+}
+
 /* Dashed connecting line for features */
 .feature-connector {
   position: relative;
