@@ -2,7 +2,7 @@
 
 Short answer: host the canonical case study on your own portfolio, then optionally syndicate to Medium with a proper canonical tag. Your portfolio page is the primary signal; Medium is a distribution channel, not a replacement.
 
-## Option 1 — Portfolio only
+## Option 1 -Portfolio only
 
 **Pros**
 
@@ -23,7 +23,7 @@ Short answer: host the canonical case study on your own portfolio, then optional
 - Your main goal is impressing specific recruiters/hiring managers who will click through from your resume or LinkedIn.
 - You want the case study to live permanently as part of your portfolio narrative.
 
-## Option 2 — Medium only
+## Option 2 -Medium only
 
 **Pros**
 
@@ -43,7 +43,7 @@ Short answer: host the canonical case study on your own portfolio, then optional
 - You don’t have a personal site yet and want to start writing now.
 - Your primary goal is audience-building or demonstrating communication skills, not showcasing a specific project as a first-class artifact.
 
-## Option 3 — Both (portfolio + Medium syndication)
+## Option 3 -Both (portfolio + Medium syndication)
 
 This is usually the strongest approach if you’re willing to do it carefully.
 

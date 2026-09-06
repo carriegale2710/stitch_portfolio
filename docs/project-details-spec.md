@@ -2,7 +2,7 @@
 
 ## Goal
 
-Define a reusable structure and checklist for portfolio project detail pages that signal authentic judgment, decision-making, and measurable outcomes — the signals hiring managers look for in 2026.
+Define a reusable structure and checklist for portfolio project detail pages that signal authentic judgment, decision-making, and measurable outcomes -the signals hiring managers look for in 2026.
 
 ---
 
@@ -77,7 +77,7 @@ Use this exact section order. Each section includes a purpose, target length, an
 
 ### 3. Architecture & Key Decisions
 
-**Purpose:** Show how you think — the 2–3 decisions that actually mattered and the trade-offs you accepted.
+**Purpose:** Show how you think -the 2–3 decisions that actually mattered and the trade-offs you accepted.
 
 **Length:** 3–6 bullet points (80–150 words).
 
@@ -100,7 +100,7 @@ Use this exact section order. Each section includes a purpose, target length, an
 
 ### 4. The Hardest Technical Problem
 
-**Purpose:** Prove you can diagnose and fix non-trivial issues — a signal AI-generated portfolios lack.
+**Purpose:** Prove you can diagnose and fix non-trivial issues -a signal AI-generated portfolios lack.
 
 **Length:** 1 short paragraph or 2–3 bullets (60–120 words).
 

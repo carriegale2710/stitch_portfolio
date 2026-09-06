@@ -343,7 +343,7 @@ rather than three unexplained icons.
 ### Resume
 
 ```text
-InvoicePilot — Subscription invoicing SaaS
+InvoicePilot -Subscription invoicing SaaS
 Next.js, TypeScript, PostgreSQL, Stripe
 
 - Built a subscription invoicing SaaS with recurring billing, invoice tracking, and CSV export for freelancers.

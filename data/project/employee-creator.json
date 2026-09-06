@@ -4,7 +4,7 @@
     "slug": "employee-creator",
     "isTeamProject": false,
     "teamSize": 1,
-    "myRole": "Solo full-stack developer — backend API, frontend, testing strategy, CI/CD, and AWS deployment",
+    "myRole": "Solo full-stack developer -backend API, frontend, testing strategy, CI/CD, and AWS deployment",
     "techStack": [
       "Spring Boot 3 / Java 21",
       "Maven",
@@ -31,12 +31,12 @@
 
   "pitch": "A full-stack CRUD system for tracking employee records and immutable contract history, built solo in 4 weeks to prove production-grade full-stack practices.",
 
-  "problem": "HR teams managing employee records need a system that separates day-to-day employee updates from an immutable, auditable contract history. Most CRUD tutorials handle a single entity type, not the compliance-relevant split between mutable employee info and legal contract documents that must never be silently edited after creation. This was a solo 4-week project built to prove I could design, test, and deploy production-grade full-stack software end-to-end — real architecture, comprehensive automated testing, and live AWS infrastructure, not a demo that only runs on localhost.",
+  "problem": "HR teams managing employee records need a system that separates day-to-day employee updates from an immutable, auditable contract history. Most CRUD tutorials handle a single entity type, not the compliance-relevant split between mutable employee info and legal contract documents that must never be silently edited after creation. This was a solo 4-week project built to prove I could design, test, and deploy production-grade full-stack software end-to-end -real architecture, comprehensive automated testing, and live AWS infrastructure, not a demo that only runs on localhost.",
 
   "architectureDecisions": [
     {
       "decision": "Modeled employees and contracts as a one-to-many relationship, with contracts treated as immutable (no update endpoint).",
-      "why": "Employee details (salary, department, hours) change routinely, but a contract is a legal document that shouldn't be silently edited after the fact — separating the tables keeps casual updates from touching auditable history.",
+      "why": "Employee details (salary, department, hours) change routinely, but a contract is a legal document that shouldn't be silently edited after the fact -separating the tables keeps casual updates from touching auditable history.",
       "tradeoff": "Any change to contract terms has to be a new contract row rather than a field update, pushing more display logic onto the frontend to render contract history correctly."
     },
     {
@@ -47,22 +47,22 @@
     {
       "decision": "Used a hybrid testing approach: top-down TDD on the backend, but manual browser testing before writing frontend tests.",
       "why": "Full top-down TDD on both layers was too slow for a solo 4-week timeline. The backend's business rules (contract immutability, employee/contract relationships) benefited most from tests-first; the UI benefited more from fast manual iteration.",
-      "tradeoff": "Frontend test coverage is thinner and arrived later than the backend's — visible in the 'React tests still in progress' known issue."
+      "tradeoff": "Frontend test coverage is thinner and arrived later than the backend's -visible in the 'React tests still in progress' known issue."
     },
     {
       "decision": "Split deployment across two AWS services: S3 + CloudFront for the React frontend, a single EC2 instance (Nginx + systemd + Certbot) for the Spring Boot API and MySQL.",
       "why": "The frontend is static output that benefits from CDN caching and cheap hosting; the backend needs a persistent process and a co-located database.",
-      "tradeoff": "Two separate deploy pipelines instead of one — GitHub Actions handles the frontend automatically, while the backend redeploy is a manual package-and-restart — plus a resource-constrained EC2 box running Nginx, the JVM, and MySQL together."
+      "tradeoff": "Two separate deploy pipelines instead of one -GitHub Actions handles the frontend automatically, while the backend redeploy is a manual package-and-restart -plus a resource-constrained EC2 box running Nginx, the JVM, and MySQL together."
     },
     {
       "decision": "Migrated the live demo deployment from AWS (EC2 + S3/CloudFront) to Render, with the demo database swapped from MySQL to Render's free-tier Postgres.",
       "why": "The AWS free tier backing the original demo deployment expired; Render offers a more generous, ongoing free tier for a small demo workload without having to keep managing EC2 directly.",
-      "tradeoff": "The live demo now runs on Postgres rather than the MySQL the app was actually designed, seeded, and tested against, and this is a demo-only substitution — the architecture described above and in the backend README still reflects the original AWS/MySQL design, not what the current live link is running on."
+      "tradeoff": "The live demo now runs on Postgres rather than the MySQL the app was actually designed, seeded, and tested against, and this is a demo-only substitution -the architecture described above and in the backend README still reflects the original AWS/MySQL design, not what the current live link is running on."
     }
   ],
 
   "hardestProblem": {
-    "issue": "Once the backend and frontend were deployed to separate AWS services (EC2 for the API, S3 + CloudFront for the React app), the frontend couldn't reach the API — requests were failing between the two origins.",
+    "issue": "Once the backend and frontend were deployed to separate AWS services (EC2 for the API, S3 + CloudFront for the React app), the frontend couldn't reach the API -requests were failing between the two origins.",
     "diagnosis": "Traced it to two separate causes stacked on top of each other: an overly restrictive CORS configuration on the Spring Boot side, and the EC2 instance's security group not allowing the right inbound traffic on the API's port.",
     "fix": "Explicitly allowlisted the deployed frontend's exact origin in the Spring CORS config instead of a wildcard, adjusted the EC2 security group rules, and put Nginx in front of the app as a reverse proxy with TLS via Certbot so the API is only reachable through the expected domain and port.",
     "result": "The two separately-hosted services now communicate reliably over HTTPS, and the CORS/security-group fix is documented in the backend README so it doesn't have to be rediscovered on a future redeploy."
@@ -73,7 +73,7 @@
       { "label": "Commits", "value": "198 commits over a 4-week solo build" },
       {
         "label": "Automated tests",
-        "value": "40+ tests — JUnit/Mockito unit tests plus REST Assured/H2 integration tests covering employees and contracts"
+        "value": "40+ tests -JUnit/Mockito unit tests plus REST Assured/H2 integration tests covering employees and contracts"
       },
       {
         "label": "CI/CD",
@@ -84,14 +84,14 @@
         "value": "Backend on EC2 with JVM heap capped at 256MB and a trimmed MySQL buffer pool so Nginx, the JVM, and MySQL fit on one small instance; frontend on S3 + CloudFront"
       }
     ],
-    "limitations": "Contract deletion isn't fully wired up in the frontend yet, employee list pagination is still missing so larger lists mean bigger API payloads, the employee list doesn't auto-refresh after a delete without a manual reload, and React component test coverage is still described as basic — all tracked as known issues rather than glossed over."
+    "limitations": "Contract deletion isn't fully wired up in the frontend yet, employee list pagination is still missing so larger lists mean bigger API payloads, the employee list doesn't auto-refresh after a delete without a manual reload, and React component test coverage is still described as basic -all tracked as known issues rather than glossed over."
   },
 
   "whatIdDoDifferently": [
-    "Add pagination to the employee list earlier — it's a known issue now, but it should have been part of the initial API design before contract history started growing response sizes.",
+    "Add pagination to the employee list earlier -it's a known issue now, but it should have been part of the initial API design before contract history started growing response sizes.",
     "Move the contract form's employee-ID field out of manual free-text entry sooner; leaving it as a raw input is a documented UX risk for human error that a dropdown or auto-fill would have avoided from the start.",
-    "Write React component tests alongside each feature instead of after — the browser-test-first approach was the right call for solo speed, but backfilling Vitest tests later is why frontend coverage lagged the backend's.",
-    "Unify the two deploy pipelines — the frontend redeploys automatically through GitHub Actions while the backend redeploy is a manual package-and-restart, which is an avoidable inconsistency."
+    "Write React component tests alongside each feature instead of after -the browser-test-first approach was the right call for solo speed, but backfilling Vitest tests later is why frontend coverage lagged the backend's.",
+    "Unify the two deploy pipelines -the frontend redeploys automatically through GitHub Actions while the backend redeploy is a manual package-and-restart, which is an avoidable inconsistency."
   ],
 
   "proofLinks": [
@@ -138,7 +138,7 @@
   ],
 
   "aiDisclosure": {
-    "disclosed": false,
+    "disclosed": true,
     "note": "AI usage was only used for documentation, minor refactoring and formatting, and did not contribute to the design or implementation of the system."
   }
 }
