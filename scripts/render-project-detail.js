@@ -19,6 +19,10 @@ function renderList(id, items, template) {
   document.getElementById(id).innerHTML = items.map(template).join("");
 }
 
+function setSectionVisible(sectionId, isVisible) {
+  document.getElementById(sectionId)?.classList.toggle("hidden", !isVisible);
+}
+
 async function loadProjectDetail() {
   const body = document.body;
   const response = await fetch(body.dataset.projectData);
@@ -32,10 +36,12 @@ async function loadProjectDetail() {
     (link) => link.label.toLowerCase() === "repository",
   );
 
+  const pitch = project.pitch ?? project.meta.description;
+
   document.title = `${project.meta.title} - Maker.Dev`;
-  document.getElementById("page-description").content = project.pitch;
+  document.getElementById("page-description").content = pitch;
   setProjectText("project-title", project.meta.title);
-  setProjectText("project-pitch", project.pitch);
+  setProjectText("project-pitch", pitch);
   setProjectText(
     "project-meta",
     `${project.meta.myRole} / ${project.meta.teamSize} developer${project.meta.teamSize === 1 ? "" : "s"} / ${project.meta.techStack.join(" / ")}`,
@@ -44,6 +50,17 @@ async function loadProjectDetail() {
   setProjectProp("repo-link", "href", repository.url);
   setProjectProp("project-image", "src", body.dataset.projectImage);
   setProjectText("problem", project.problem);
+
+  const team = project.meta.team ?? [];
+  setSectionVisible("team-section", team.length > 0);
+  renderList(
+    "team",
+    team,
+    (member) => `<article class="border border-brand-slate p-6">
+            <h3 class="font-mono text-sm font-bold text-brand-sage">${escapeProjectHtml(member.name)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-on-surface-variant">${escapeProjectHtml(member.area)}</p>
+        </article>`,
+  );
 
   renderList(
     "decisions",
@@ -94,18 +111,30 @@ async function loadProjectDetail() {
       `<li class="border-l-2 border-brand-sage pl-5">${escapeProjectHtml(item)}</li>`,
   );
 
+  const reflections = project.reflections ?? [];
+  setSectionVisible("reflections-section", reflections.length > 0);
+  renderList(
+    "reflections",
+    reflections,
+    (item) =>
+      `<li class="border-l-2 border-brand-sage pl-5">${escapeProjectHtml(item)}</li>`,
+  );
+
   renderList(
     "proof-links",
     links,
     (
       link,
-    ) => `<a class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors" 
+    ) => `<a class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors flex flex-col gap-2" 
             href="${escapeProjectHtml(link.url)}" 
             target="_blank" 
             rel="noopener"
             >
-            ${escapeProjectHtml(link.label)} 
-            <span aria-hidden="true">↗</span>
+            <span>${escapeProjectHtml(link.label)} <span aria-hidden="true">↗</span></span>${
+              link.note
+                ? `<span class="text-xs font-normal normal-case text-on-surface-variant">${escapeProjectHtml(link.note)}</span>`
+                : ""
+            }
         </a>`,
   );
 

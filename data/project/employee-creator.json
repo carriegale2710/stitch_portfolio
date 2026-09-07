@@ -1,7 +1,12 @@
 {
   "meta": {
+    "id": "employee-creator",
+    "name": "Employee Creator",
+    "category": "full-stack",
     "title": "From Zero to Production: A Solo Full-Stack HR System with Spring Boot and React",
     "slug": "employee-creator",
+    "description": "A full-stack CRUD system for tracking employee records and immutable contract history, built solo in 4 weeks to prove production-grade full-stack practices.",
+    "image": "../../assets/images/project/employee-creator/hero.png",
     "isTeamProject": false,
     "teamSize": 1,
     "myRole": "Solo full-stack developer -backend API, frontend, testing strategy, CI/CD, and AWS deployment",
@@ -29,8 +34,6 @@
     "team": []
   },
 
-  "pitch": "A full-stack CRUD system for tracking employee records and immutable contract history, built solo in 4 weeks to prove production-grade full-stack practices.",
-
   "problem": "HR teams managing employee records need a system that separates day-to-day employee updates from an immutable, auditable contract history. Most CRUD tutorials handle a single entity type, not the compliance-relevant split between mutable employee info and legal contract documents that must never be silently edited after creation. This was a solo 4-week project built to prove I could design, test, and deploy production-grade full-stack software end-to-end -real architecture, comprehensive automated testing, and live AWS infrastructure, not a demo that only runs on localhost.",
 
   "architectureDecisions": [
@@ -40,19 +43,9 @@
       "tradeoff": "Any change to contract terms has to be a new contract row rather than a field update, pushing more display logic onto the frontend to render contract history correctly."
     },
     {
-      "decision": "Restricted backend CORS to the exact deployed frontend origin instead of a wildcard.",
-      "why": "Frontend and backend are deployed as separate origins (S3 + CloudFront vs. EC2), so the API needed to explicitly trust the production frontend domain rather than accept requests from anywhere.",
-      "tradeoff": "Local development and any future additional frontend each need their own CORS entry added manually; nothing works by default outside the one trusted origin."
-    },
-    {
       "decision": "Used a hybrid testing approach: top-down TDD on the backend, but manual browser testing before writing frontend tests.",
       "why": "Full top-down TDD on both layers was too slow for a solo 4-week timeline. The backend's business rules (contract immutability, employee/contract relationships) benefited most from tests-first; the UI benefited more from fast manual iteration.",
       "tradeoff": "Frontend test coverage is thinner and arrived later than the backend's -visible in the 'React tests still in progress' known issue."
-    },
-    {
-      "decision": "Split deployment across two AWS services: S3 + CloudFront for the React frontend, a single EC2 instance (Nginx + systemd + Certbot) for the Spring Boot API and MySQL.",
-      "why": "The frontend is static output that benefits from CDN caching and cheap hosting; the backend needs a persistent process and a co-located database.",
-      "tradeoff": "Two separate deploy pipelines instead of one -GitHub Actions handles the frontend automatically, while the backend redeploy is a manual package-and-restart -plus a resource-constrained EC2 box running Nginx, the JVM, and MySQL together."
     },
     {
       "decision": "Migrated the live demo deployment from AWS (EC2 + S3/CloudFront) to Render, with the demo database swapped from MySQL to Render's free-tier Postgres.",
@@ -92,6 +85,11 @@
     "Move the contract form's employee-ID field out of manual free-text entry sooner; leaving it as a raw input is a documented UX risk for human error that a dropdown or auto-fill would have avoided from the start.",
     "Write React component tests alongside each feature instead of after -the browser-test-first approach was the right call for solo speed, but backfilling Vitest tests later is why frontend coverage lagged the backend's.",
     "Unify the two deploy pipelines -the frontend redeploys automatically through GitHub Actions while the backend redeploy is a manual package-and-restart, which is an avoidable inconsistency."
+  ],
+
+  "reflections": [
+    "This project was a solo, end-to-end full-stack build that required me to think through architecture, testing, and deployment in a production-like environment. I learned how to manage the complexities of a real-world application, including handling immutable data, configuring CORS for cross-origin requests, and deploying to AWS.",
+    "I also gained experience in balancing speed and quality, particularly in deciding when to write tests first versus iterating quickly on the frontend. The project reinforced the importance of clear documentation and maintaining a clean codebase for future maintainability."
   ],
 
   "proofLinks": [

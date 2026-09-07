@@ -1,5 +1,9 @@
 {
   "meta": {
+    "id": "indigenous-library",
+    "name": "Indigenous Library",
+    "category": "full-stack",
+    "description": "A Flask app that keeps culturally sensitive Indigenous artefacts hidden from public view until a community elder or reviewer signs off, so an academic library can safely publish its collection online.",
     "title": "Gating Cultural Access: Auth, Review Workflow & Deployment for an Indigenous Collection Library",
     "slug": "indigenous-library",
     "isTeamProject": true,
@@ -29,8 +33,6 @@
     ]
   },
 
-  "pitch": "A Flask app that keeps culturally sensitive Indigenous artefacts hidden from public view until a community elder or reviewer signs off, so an academic library can safely publish its collection online.",
-
   "problem": "An academic library wanted to digitize a physical Indigenous collection -books, artefacts, images, audio -and publish it online. The catalogue couldn't just be public-or-private like a typical library system: many items carry cultural sensitivity that requires a community elder or reviewer's judgment before release, in line with CARE principles for Indigenous data governance. Generic library software treats access as a login check; this client needed a workflow where an item's visibility depends on a human decision, with that decision recorded and attributable. As the controller/auth developer on a 5-person team, I owned the piece that had to enforce this correctly across four other people's code.",
 
   "architectureDecisions": [
@@ -48,20 +50,8 @@
       "decision": "Used the Flask blueprint pattern to merge four people's routes into one app-factory structure.",
       "why": "Each teammate's view-layer work needed to stay isolated during development but assemble into a single app at integration time, rather than one disruptive big-bang merge.",
       "tradeoff": "Most of the integration cost landed on me, late, as the controller developer."
-    },
-    {
-      "decision": "Migrated the live demo from Render/Aiven to self-managed AWS (EC2 + Nginx + Gunicorn + systemd + Certbot).",
-      "why": "The free-tier PaaS idled the instance during inactivity, which is fine for development but not for a link recruiters might click cold.",
-      "tradeoff": "Took on infra ops -systemd service management and TLS renewal -that a PaaS would otherwise handle."
     }
   ],
-
-  "hardestProblem": {
-    "issue": "Two weeks before the deadline, I had to reconcile four teammates' model and view code into one working controller layer. The OOP model classes and the Jinja templates used inconsistent column and variable names for the same data, and the view layer was still rendering hardcoded dummy content instead of real records.",
-    "diagnosis": "Traced each route's data flow from model to template to find every naming mismatch.",
-    "fix": "Renamed and aligned the inconsistent fields, converted every teammate's routes into the Flask blueprint pattern, and replaced the dummy fixtures with live MySQL queries.",
-    "result": "Turned four semi-compatible fragments into one integrated, testable application."
-  },
 
   "outcome": {
     "metrics": [
@@ -82,10 +72,23 @@
     "limitations": "5 of the model test suite's scripts (including test_reset_demo, test_model_final, and two read-only query tests) still fail or don't print PASS -documented openly in the team's own test README rather than hidden."
   },
 
+  "hardestProblem": {
+    "issue": "Two weeks before the deadline, I had to reconcile four teammates' model and view code into one working controller layer. The OOP model classes and the Jinja templates used inconsistent column and variable names for the same data, and the view layer was still rendering hardcoded dummy content instead of real records.",
+    "diagnosis": "Traced each route's data flow from model to template to find every naming mismatch.",
+    "fix": "Renamed and aligned the inconsistent fields, converted every teammate's routes into the Flask blueprint pattern, and replaced the dummy fixtures with live MySQL queries.",
+    "result": "Turned four semi-compatible fragments into one integrated, testable application."
+  },
+
   "whatIdDoDifferently": [
     "Push for shared model/database naming conventions across the whole team in week one, not week seven -the mismatched column and variable names are exactly what turned integration into a late scramble.",
     "Build an automated permission-boundary test suite for the four roles instead of relying on manual in-browser checks against every restricted route, which doesn't scale and is easy to under-cover.",
     "Fix the 5 still-failing model tests and add a direct link from the Item Details page to Item Assessment -both already flagged as known gaps in the project's own roadmap."
+  ],
+
+  "reflections": [
+    "The project was a crash course in the importance of naming conventions and shared understanding across a team. Even with good communication, mismatched names can create integration headaches that are hard to foresee.",
+    "I learned that ethical requirements (like CARE principles) can drive technical design decisions, such as implementing a state machine for access control rather than a simple boolean flag.",
+    "The experience reinforced the value of automated testing and continuous integration, especially when multiple developers are contributing to the same codebase."
   ],
 
   "proofLinks": [
