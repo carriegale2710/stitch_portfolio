@@ -6,9 +6,9 @@
     <meta
       id="page-description"
       name="description"
-      content="Indigenous Library project case study."
+      content="Project case study: replace with one-line project pitch."
     />
-    <title>Indigenous Library Project</title>
+    <title>Project Case Study</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -18,12 +18,23 @@
     />
     <link rel="stylesheet" href="../../style.css" />
     <script src="../../scripts/tailwind-config.js"></script>
+    <style>
+      main {
+        counter-reset: section-num;
+      }
+      .section-number {
+        counter-increment: section-num;
+      }
+      .section-number::before {
+        content: counter(section-num, decimal-leading-zero);
+      }
+    </style>
   </head>
   <body
     class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-brand-sage selection:text-brand-bg"
     data-partials-path="../../partials"
-    data-project-data="../../data/project/indigenous-library.json"
-    data-project-image="../../assets/images/project/indigenous-library/hero.png"
+    data-project-data="../../data/project/project.json"
+    data-project-image="../../assets/images/project/project/hero.png"
   >
     <div class="hidden md:block" id="cursor"></div>
     <div id="header-placeholder"></div>

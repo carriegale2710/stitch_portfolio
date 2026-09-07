@@ -11,6 +11,14 @@ function setProjectText(id, value) {
   document.getElementById(id).textContent = value;
 }
 
+function setProjectProp(id, prop, value) {
+  document.getElementById(id)[prop] = value;
+}
+
+function renderList(id, items, template) {
+  document.getElementById(id).innerHTML = items.map(template).join("");
+}
+
 async function loadProjectDetail() {
   const body = document.body;
   const response = await fetch(body.dataset.projectData);
@@ -32,47 +40,75 @@ async function loadProjectDetail() {
     "project-meta",
     `${project.meta.myRole} / ${project.meta.teamSize} developer${project.meta.teamSize === 1 ? "" : "s"} / ${project.meta.techStack.join(" / ")}`,
   );
-  document.getElementById("demo-link").href = demo.url;
-  document.getElementById("repo-link").href = repository.url;
+  setProjectProp("demo-link", "href", demo.url);
+  setProjectProp("repo-link", "href", repository.url);
+  setProjectProp("project-image", "src", body.dataset.projectImage);
   setProjectText("problem", project.problem);
-  document.getElementById("decisions").innerHTML = project.architectureDecisions
-    .map(
-      (item, index) =>
-        `<article class="border border-brand-slate bg-brand-card/50 p-6"><span class="font-mono text-xs text-brand-slate">Decision ${String(index + 1).padStart(2, "0")}</span><h3 class="font-mono text-lg font-bold text-brand-sage mt-5">${escapeProjectHtml(item.decision)}</h3><p class="text-sm leading-relaxed text-on-surface-variant mt-4"><strong>Why:</strong> ${escapeProjectHtml(item.why)}</p><p class="text-sm leading-relaxed text-on-surface-variant mt-4"><strong>Trade-off:</strong> ${escapeProjectHtml(item.tradeoff)}</p></article>`,
-    )
-    .join("");
-  document.getElementById("hardest").innerHTML = [
-    project.hardestProblem.issue,
-    project.hardestProblem.diagnosis,
-    project.hardestProblem.fix,
-    project.hardestProblem.result,
-  ]
-    .map((text) => `<p>${escapeProjectHtml(text)}</p>`)
-    .join("");
+
+  renderList(
+    "decisions",
+    project.architectureDecisions,
+    (
+      item,
+      index,
+    ) => `<article class="border border-brand-slate bg-brand-card/50 p-6">
+            <span class="font-mono text-xs text-brand-slate">Decision ${String(index + 1).padStart(2, "0")}</span>
+            <h3 class="font-mono text-lg font-bold text-brand-sage mt-5">${escapeProjectHtml(item.decision)}</h3>
+            <div class="mt-4 space-y-4 text-sm leading-relaxed text-on-surface-variant"> 
+                <p><strong>Why:</strong> ${escapeProjectHtml(item.why)}</p>
+                <p><strong>Trade-off:</strong> ${escapeProjectHtml(item.tradeoff)}</p>
+            </div>
+        </article>`,
+  );
+
+  renderList(
+    "hardest",
+    [
+      project.hardestProblem.issue,
+      project.hardestProblem.diagnosis,
+      project.hardestProblem.fix,
+      project.hardestProblem.result,
+    ],
+    (text) => `<p>${escapeProjectHtml(text)}</p>`,
+  );
   document.getElementById("hardest").classList.add("space-y-5");
-  document.getElementById("metrics").innerHTML = project.outcome.metrics
-    .map(
-      (metric) =>
-        `<article class="border border-brand-slate p-6"><p class="font-mono text-xs uppercase text-brand-slate">${escapeProjectHtml(metric.label)}</p><p class="text-lg leading-relaxed text-on-surface-variant mt-8">${escapeProjectHtml(metric.value)}</p></article>`,
-    )
-    .join("");
+
+  renderList(
+    "metrics",
+    project.outcome.metrics,
+    (metric) => `<article class="border border-brand-slate p-6">
+            <p class="font-mono text-xs uppercase text-brand-slate">${escapeProjectHtml(metric.label)}</p>
+            <p class="text-lg leading-relaxed text-on-surface-variant mt-8">${escapeProjectHtml(metric.value)}</p>
+        </article>`,
+  );
+
   setProjectText(
     "limitations",
     `Known limitations: ${project.outcome.limitations}`,
   );
-  document.getElementById("different").innerHTML = project.whatIdDoDifferently
-    .map(
-      (item) =>
-        `<li class="border-l-2 border-brand-sage pl-5">${escapeProjectHtml(item)}</li>`,
-    )
-    .join("");
-  document.getElementById("project-image").src = body.dataset.projectImage;
-  document.getElementById("proof-links").innerHTML = links
-    .map(
-      (link) =>
-        `<a class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors" href="${escapeProjectHtml(link.url)}" target="_blank" rel="noopener">${escapeProjectHtml(link.label)} <span aria-hidden="true">↗</span></a>`,
-    )
-    .join("");
+
+  renderList(
+    "different",
+    project.whatIdDoDifferently,
+    (item) =>
+      `<li class="border-l-2 border-brand-sage pl-5">${escapeProjectHtml(item)}</li>`,
+  );
+
+  renderList(
+    "proof-links",
+    links,
+    (
+      link,
+    ) => `<a class="border border-brand-slate p-5 font-mono text-sm text-brand-sage hover:bg-brand-slate hover:text-brand-bg transition-colors" 
+            href="${escapeProjectHtml(link.url)}" 
+            target="_blank" 
+            rel="noopener"
+            >
+            ${escapeProjectHtml(link.label)} 
+            <span aria-hidden="true">↗</span>
+        </a>`,
+  );
+
   setProjectText(
     "ai-disclosure",
     project.aiDisclosure.disclosed

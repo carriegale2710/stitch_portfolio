@@ -40,9 +40,7 @@ async function loadSharedLayout() {
       isOpen ? "Close navigation" : "Open navigation",
     );
     mobileNavigation.setAttribute("aria-hidden", String(!isOpen));
-    document
-      .querySelector(".site-header")
-      ?.classList.toggle("mobile-nav-open", isOpen);
+    header?.classList.toggle("mobile-nav-open", isOpen);
   };
 
   menuToggle?.addEventListener("click", () => {
