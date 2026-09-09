@@ -8,15 +8,19 @@ function escapeProjectHtml(value) {
 }
 
 function setProjectText(id, value) {
-  document.getElementById(id).textContent = value;
+  const el = document.getElementById(id);
+  if (el) el.textContent = value;
 }
 
 function setProjectProp(id, prop, value) {
-  document.getElementById(id)[prop] = value;
+  const el = document.getElementById(id);
+  if (el) el[prop] = value;
 }
 
 function renderList(id, items, template) {
-  document.getElementById(id).innerHTML = items.map(template).join("");
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = items.map(template).join("");
 }
 
 function setSectionVisible(sectionId, isVisible) {
@@ -36,12 +40,20 @@ async function loadProjectDetail() {
     (link) => link.label.toLowerCase() === "repository",
   );
 
-  const pitch = project.pitch ?? project.meta.description;
+  const pitch =
+    project.highlights?.tagline ?? project.pitch ?? project.meta.description;
 
   document.title = `${project.meta.title} - Maker.Dev`;
   document.getElementById("page-description").content = pitch;
   setProjectText("project-title", project.meta.title);
   setProjectText("project-pitch", pitch);
+  setProjectText("project-quote", project.highlights?.signatureQuote ?? "");
+  renderList(
+    "project-metrics",
+    project.highlights?.metrics ?? [],
+    (metric) =>
+      `<li class="px-4 first:pl-0 last:pr-0">${escapeProjectHtml(metric)}</li>`,
+  );
   setProjectText(
     "project-meta",
     `${project.meta.myRole} / ${project.meta.teamSize} developer${project.meta.teamSize === 1 ? "" : "s"} / ${project.meta.techStack.join(" / ")}`,
@@ -111,15 +123,6 @@ async function loadProjectDetail() {
       `<li class="border-l-2 border-brand-sage pl-5">${escapeProjectHtml(item)}</li>`,
   );
 
-  const reflections = project.reflections ?? [];
-  setSectionVisible("reflections-section", reflections.length > 0);
-  renderList(
-    "reflections",
-    reflections,
-    (item) =>
-      `<li class="border-l-2 border-brand-sage pl-5">${escapeProjectHtml(item)}</li>`,
-  );
-
   renderList(
     "proof-links",
     links,
@@ -136,13 +139,6 @@ async function loadProjectDetail() {
                 : ""
             }
         </a>`,
-  );
-
-  setProjectText(
-    "ai-disclosure",
-    project.aiDisclosure.disclosed
-      ? project.aiDisclosure.note
-      : "AI usage has not been documented for this project. Update this only with an accurate account of tools and manually authored work.",
   );
 }
 

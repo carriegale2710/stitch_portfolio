@@ -1,9 +1,9 @@
 [
   {
     "id": "indigenous-library",
-    "title": "Indigenous Academic Library",
-    "description": "Web application for a public library to manage culturally-sensitive materials from a local Indigenous community. Features include role-based access control, user session management, and password hashing.",
-    "tags": ["Flask", "Python", "MySQL", "AWS"],
+    "title": "Indigenous Library — Gating Cultural Access",
+    "description": "Team project (5): Flask app that gates culturally sensitive Indigenous artefacts behind a reviewer/elder sign-off, built to CARE principles for Indigenous data governance. My role: controller layer, auth, RBAC, deployment.",
+    "tags": ["Flask", "MySQL", "Session Auth", "Bootstrap 5"],
     "icon": "assets/project/libraryIcon",
     "image": "assets/images/project/indigenous-library/hero.png",
     "pageUrl": "../pages/project/indigenous-library.html",
@@ -12,9 +12,9 @@
   },
   {
     "id": "trivia",
-    "title": "Trivia Game",
-    "description": "Play trivia with Questions fetched from Open Trivia Database. Users can keep track of the quiz games they played with token based session history.",
-    "tags": ["React", "Typescript", "Java", "Spring Boot", "MySQL"],
+    "title": "Trivia Game — Retry Mode & a Shipped Design System",
+    "description": "2-person project: frontend for a trivia game with a retry loop that resurfaces only genuinely unresolved wrong answers, scored by difficulty. My role: full player-facing experience, built against a peer-owned API.",
+    "tags": ["React/TS", "Vite", "Tailwind", "Spring Boot (peer)", "Figma"],
     "icon": "assets/project/triviaIcon",
     "image": "assets/images/project/trivia/hero.png",
     "pageUrl": "../pages/project/trivia.html",
@@ -23,9 +23,9 @@
   },
   {
     "id": "employee-creator",
-    "title": "Employee Management System",
-    "description": "Full-stack CRUD application for managing employee records and contracts. Built over 4 weeks as a solo project, it demonstrates enterprise-level development practices including comprehensive testing, CI/CD deployment, and scalable architecture.",
-    "tags": ["React", "Typescript", "SASS", "Java", "Spring Boot", "MySQL"],
+    "title": "Employee Creator — From Zero to Production",
+    "description": "Solo full-stack HR system (Spring Boot + React), built and deployed to live AWS infrastructure in 4 weeks.",
+    "tags": ["Spring Boot 3", "Java 21", "MySQL", "React/TS", "AWS"],
     "icon": "assets/project/employeeCreatorIcon.svg",
     "image": "assets/images/project/employee-creator/hero.png",
     "pageUrl": "../pages/project/employee-creator.html",

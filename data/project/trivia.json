@@ -31,7 +31,18 @@
     ]
   },
 
-  "problem": "Generic trivia apps score a single playthrough and move on -they don't help a player revisit the specific questions they got wrong. This was a 2-person coursework project (frontend: me; backend: my peer) built to add a real retry loop on top of the standard Open Trivia DB question flow: track which answers were wrong, resurface only the still-unresolved ones, and reward harder questions with more points. My side of the work was the entire player-facing experience -the parts a tester actually clicks through -built against an API contract I reviewed in code but didn't write myself.",
+  "highlights": {
+    "tagline": "Two-person trivia game with a retry loop that resurfaces only genuinely unresolved wrong answers, scored by difficulty.",
+    "metrics": [
+      "128 commits",
+      "5 weekly ticket cycles",
+      "Figma prototype user-tested"
+    ],
+    "signatureQuote": "Retry mode ran against a backend contract I didn't write -before wiring calls, I confirmed the exact required params against my peer's implementation instead of assuming a shape from the frontend side.",
+    "cta": "See the full build breakdown"
+  },
+
+  "problem": "Generic trivia apps score a single playthrough and move on -they don't help a player revisit the specific questions they got wrong. This project adds a real retry loop on top of the standard Open Trivia DB question flow: track which answers were wrong, resurface only the still-unresolved ones, and reward harder questions with more points.",
 
   "architectureDecisions": [
     {
@@ -53,7 +64,6 @@
 
   "outcome": {
     "metrics": [
-      { "label": "Commits", "value": "128 commits across a 2-person team" },
       {
         "label": "Delivery cadence",
         "value": "5 weekly ticket cycles, each shipping a distinct player-facing feature -question display, scoring/context, then retry mode + points + a full design system in the final cycle"
@@ -78,12 +88,6 @@
     "Add frontend tests before shipping retry mode and the points system -the frontend still has no test scripts, so the trickiest state has no automated coverage.",
     "Ship the planned sound feedback (ding/buzzer) alongside the visual tick/cross icon in the same release instead of deferring it, since half-shipped feedback is easy to forget about later.",
     "Document the AWS-to-Render/Postgres demo migration in the README the same way the original MySQL design is documented -right now the live demo's actual stack isn't mentioned anywhere in the repo's own docs."
-  ],
-
-  "reflections": [
-    "The project was a crash course in the importance of clear API contracts between frontend and backend, especially when the two halves are owned by different people. Even small mismatches in parameter names or expected behavior can break a feature entirely.",
-    "I learned that user feedback on prototypes can catch usability issues (like missing confirmation of right/wrong answers) that aren't obvious from code alone, and that shipping a complete feedback loop (visual + audio) is more effective than half measures.",
-    "The experience reinforced the value of automated testing, particularly for complex state like scoring and retry logic, which is hard to verify manually and easy to overlook."
   ],
 
   "proofLinks": [
@@ -127,10 +131,5 @@
       "url": "https://trello.com/b/14XGoYKh/trivia-full-stack-project-fred-carrie",
       "note": null
     }
-  ],
-
-  "aiDisclosure": {
-    "disclosed": true,
-    "note": "AI usage was only used for documentation, minor refactoring and formatting, and did not contribute to the design or implementation of the system."
-  }
+  ]
 }

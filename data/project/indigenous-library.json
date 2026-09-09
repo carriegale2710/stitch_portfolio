@@ -33,7 +33,14 @@
     ]
   },
 
-  "problem": "An academic library wanted to digitize a physical Indigenous collection -books, artefacts, images, audio -and publish it online. The catalogue couldn't just be public-or-private like a typical library system: many items carry cultural sensitivity that requires a community elder or reviewer's judgment before release, in line with CARE principles for Indigenous data governance. Generic library software treats access as a login check; this client needed a workflow where an item's visibility depends on a human decision, with that decision recorded and attributable. As the controller/auth developer on a 5-person team, I owned the piece that had to enforce this correctly across four other people's code.",
+  "highlights": {
+    "tagline": "Team-built Flask app that gates culturally sensitive Indigenous artefacts behind a reviewer sign-off, following CARE principles.",
+    "metrics": ["232 commits (team)", "Lighthouse 93", "LCP 0.83s"],
+    "signatureQuote": "Modeled access status as a state machine -Pending to Open, Restricted, or Culturally Sensitive- instead of a boolean, because the requirement was a review process, not a login gate.",
+    "cta": "See the full build breakdown"
+  },
+
+  "problem": "An academic library wanted to digitize a physical Indigenous collection -books, artefacts, images, audio -and publish it online. The catalogue couldn't just be public-or-private like a typical library system: many items carry cultural sensitivity that requires a community elder or reviewer's judgment before release, in line with CARE principles for Indigenous data governance. Generic library software treats access as a login check; this client needed a workflow where an item's visibility depends on a human decision, with that decision recorded and attributable.",
 
   "architectureDecisions": [
     {
@@ -55,7 +62,6 @@
 
   "outcome": {
     "metrics": [
-      { "label": "Commits", "value": "232 commits across the team" },
       {
         "label": "Lighthouse performance score",
         "value": "93, after converting item images from SVG to WebP"
@@ -83,12 +89,6 @@
     "Push for shared model/database naming conventions across the whole team in week one, not week seven -the mismatched column and variable names are exactly what turned integration into a late scramble.",
     "Build an automated permission-boundary test suite for the four roles instead of relying on manual in-browser checks against every restricted route, which doesn't scale and is easy to under-cover.",
     "Fix the 5 still-failing model tests and add a direct link from the Item Details page to Item Assessment -both already flagged as known gaps in the project's own roadmap."
-  ],
-
-  "reflections": [
-    "The project was a crash course in the importance of naming conventions and shared understanding across a team. Even with good communication, mismatched names can create integration headaches that are hard to foresee.",
-    "I learned that ethical requirements (like CARE principles) can drive technical design decisions, such as implementing a state machine for access control rather than a simple boolean flag.",
-    "The experience reinforced the value of automated testing and continuous integration, especially when multiple developers are contributing to the same codebase."
   ],
 
   "proofLinks": [
@@ -122,10 +122,5 @@
       "url": "https://github.com/carriegale2710/indigenous-library/blob/main/docs/prd.md",
       "note": null
     }
-  ],
-
-  "aiDisclosure": {
-    "disclosed": true,
-    "note": "AI usage was only used for documentation, minor refactoring and formatting, and did not contribute to the design or implementation of the system."
-  }
+  ]
 }

@@ -34,7 +34,18 @@
     "team": []
   },
 
-  "problem": "HR teams managing employee records need a system that separates day-to-day employee updates from an immutable, auditable contract history. Most CRUD tutorials handle a single entity type, not the compliance-relevant split between mutable employee info and legal contract documents that must never be silently edited after creation. This was a solo 4-week project built to prove I could design, test, and deploy production-grade full-stack software end-to-end -real architecture, comprehensive automated testing, and live AWS infrastructure, not a demo that only runs on localhost.",
+  "highlights": {
+    "tagline": "Solo full-stack HR system built and deployed to live AWS infrastructure in 4 weeks.",
+    "metrics": [
+      "198 commits",
+      "40+ automated tests",
+      "Live on AWS EC2 + CloudFront"
+    ],
+    "signatureQuote": "Contracts are immutable by design -no update endpoint- so a legal record can't be silently edited, only appended to.",
+    "cta": "See the full build breakdown"
+  },
+
+  "problem": "HR teams managing employee records need a system that separates day-to-day employee updates from an immutable, auditable contract history. Most CRUD tutorials handle a single entity type, not the compliance-relevant split between mutable employee info and legal contract documents that must never be silently edited after creation.",
 
   "architectureDecisions": [
     {
@@ -63,7 +74,6 @@
 
   "outcome": {
     "metrics": [
-      { "label": "Commits", "value": "198 commits over a 4-week solo build" },
       {
         "label": "Automated tests",
         "value": "40+ tests -JUnit/Mockito unit tests plus REST Assured/H2 integration tests covering employees and contracts"
@@ -85,11 +95,6 @@
     "Move the contract form's employee-ID field out of manual free-text entry sooner; leaving it as a raw input is a documented UX risk for human error that a dropdown or auto-fill would have avoided from the start.",
     "Write React component tests alongside each feature instead of after -the browser-test-first approach was the right call for solo speed, but backfilling Vitest tests later is why frontend coverage lagged the backend's.",
     "Unify the two deploy pipelines -the frontend redeploys automatically through GitHub Actions while the backend redeploy is a manual package-and-restart, which is an avoidable inconsistency."
-  ],
-
-  "reflections": [
-    "This project was a solo, end-to-end full-stack build that required me to think through architecture, testing, and deployment in a production-like environment. I learned how to manage the complexities of a real-world application, including handling immutable data, configuring CORS for cross-origin requests, and deploying to AWS.",
-    "I also gained experience in balancing speed and quality, particularly in deciding when to write tests first versus iterating quickly on the frontend. The project reinforced the importance of clear documentation and maintaining a clean codebase for future maintainability."
   ],
 
   "proofLinks": [
@@ -133,10 +138,5 @@
       "url": "https://github.com/carriegale2710/employee-creator/blob/main/prd.md",
       "note": null
     }
-  ],
-
-  "aiDisclosure": {
-    "disclosed": true,
-    "note": "AI usage was only used for documentation, minor refactoring and formatting, and did not contribute to the design or implementation of the system."
-  }
+  ]
 }
